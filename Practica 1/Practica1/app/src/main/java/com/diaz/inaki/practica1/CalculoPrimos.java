@@ -52,8 +52,8 @@ public class CalculoPrimos {
         Boolean esPrimo = false; // variable para devolver
         int raizPrimo = (int) (Math.sqrt(i)); // raiz del candidato
         int contadorCriba = 3;
-        // lo dividimos por todos los primos almacenados hasta la raiz del candidato, si el valor es 0 es que no hay mas almacenados
-        while (primos[contadorCriba] <= raizPrimo && primos[contadorCriba] != 0) {
+        // lo dividimos por todos los primos almacenados hasta la raiz del candidato
+        while (primos[contadorCriba] <= raizPrimo) {
             if (i % primos[contadorCriba] == 0) {
                 return false;
             }
