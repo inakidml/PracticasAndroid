@@ -32,10 +32,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
 
         int posicion = Integer.parseInt("0" + editTextPosicion.getText());
-        if (posicion > 0 && posicion < 1000000) {
+        if (posicion > 0 && posicion < 1000000) { // tambien he añadido una restricción en el de activity_main.xml maxLength=6
             textViewResultado.setText("El primo número " + posicion + " es: " + cp.devolverPrimo(posicion));
         } else {
-            textViewResultado.setText("posición entre 1 y 999999");
+            textViewResultado.setText(getString(R.string.digitos));
+
         }
     }
 }
