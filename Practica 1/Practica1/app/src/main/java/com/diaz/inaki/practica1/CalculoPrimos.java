@@ -20,26 +20,26 @@ public class CalculoPrimos {
         contadorPrimos = 3;
     }
 
-    public int devolverPrimo(int i) {
+    public int devolverPrimo(int i) {// devuelve el primo de la posición que se pasa como argumento
         if (i < 3) {
             return i;
         } else {
-            return calcularPrimo(i);
+            return calcularPrimo(i);//a partir del tres llamamos a la función calcular el primo de la posición i
         }
     }
 
-    private int calcularPrimo(int i) {
+    private int calcularPrimo(int i) { // recibimos como parametro la posición que queremos
 
-        int contador = primos[contadorPrimos] + 2; // empezamos a buscar a partir del siguinete impar almacenado
+        int contador = primos[contadorPrimos] + 2; // empezamos a buscar a partir del siguiente impar almacenado
         int primo = -1;
-        if (primos[i] != 0) {
+        if (primos[i] != 0) { // si la posición solicitada contiene un número diferente de 0 es que ya lo hemos calculado y lo devolvemos directamente
             return primos[i];
         } else {
-            while (contadorPrimos != i) {
-                if (esPrimo(contador)) {// si nos devuelve true
-                    contadorPrimos++; //sumamos uno al contador
-                    primos[contadorPrimos] = contador; // lo guardamos
-                    primo = contador; // lo devolvemos al main
+            while (contadorPrimos != i) { // hacemos un bucle hasta que la posición solicitada sea igual al número de primos que tenemos
+                if (esPrimo(contador)) {// si nos devuelve true contador es primo
+                    contadorPrimos++; //sumamos uno al contadorPrimos (posición)
+                    primos[contadorPrimos] = contador; // guardamos el primo en la posición
+                    primo = contador; // lo cargamos en primo para devolverlo al main cuando si salimos del bucle
                 }
                 contador += 2; // solo pasamos los impares
             }
@@ -49,28 +49,15 @@ public class CalculoPrimos {
 
     //devuelve true si un número es primo
     private Boolean esPrimo(int i) {
-        Boolean esPrimo = false;
-        int raizPrimo = (int) (Math.sqrt(i));
-        if (i % 2 == 0) {
-            return false;// si es par, no es primo
-        } else {
-            int contadorCriba = 3;
-            // lo dividimos por todos los primos almacenados hasta la raiz del candidato, si el valor es 0 es que no hay mas almacenados
-            while (primos[contadorCriba] <= raizPrimo && primos[contadorCriba] != 0) {
-                if (i % primos[contadorCriba] == 0) {
-                    return false;
-                }
-                contadorCriba++;
+        Boolean esPrimo = false; // variable para devolver
+        int raizPrimo = (int) (Math.sqrt(i)); // raiz del candidato
+        int contadorCriba = 3;
+        // lo dividimos por todos los primos almacenados hasta la raiz del candidato, si el valor es 0 es que no hay mas almacenados
+        while (primos[contadorCriba] <= raizPrimo && primos[contadorCriba] != 0) {
+            if (i % primos[contadorCriba] == 0) {
+                return false;
             }
-            if (primos[contadorCriba]==0) {
-                //si hemos salido del while por primos[contadorCriba]==0 debemos seguir probando
-                //si no esta almacenado, seguimos dividiendo por todos los impares
-                for (int j = primos[contadorCriba] + 2; j <= raizPrimo; j += 2) {
-                    if (i % j == 0) {
-                        return false;
-                    }
-                }
-            }
+            contadorCriba++;
         }
         return true;
     }
