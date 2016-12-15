@@ -1,0 +1,12 @@
+<resources>
+    <string name="textViewText">¿Cual es tu estado marital?</string>
+    <string name="app_name">Estado Marital</string>
+    <string name="radioB1">soltero</string>
+    <string name="radioB2">casado</string>
+    <string name="radioB3">viudo</string>
+    <string name="radioB4">divorciado</string>
+    <string name="checkBOxText">¿Te gusta el tema de hoy?</string>
+    <string name="BotonReset">Reset</string>
+
+
+</resources>

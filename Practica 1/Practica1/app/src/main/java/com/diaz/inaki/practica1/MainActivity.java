@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ic_action_name);
+
         miboton = (Button) findViewById(R.id.button);
         editTextPosicion = (EditText) findViewById(R.id.editTextPosicion);
         textViewResultado = (TextView) findViewById(R.id.textViewResultado);
