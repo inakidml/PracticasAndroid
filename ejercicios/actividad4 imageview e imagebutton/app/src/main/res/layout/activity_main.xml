@@ -26,6 +26,7 @@
     <ImageView
         android:adjustViewBounds="true"
         android:maxHeight="90dp"
+        android:scaleType="fitCenter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/whatsapp630x405"
