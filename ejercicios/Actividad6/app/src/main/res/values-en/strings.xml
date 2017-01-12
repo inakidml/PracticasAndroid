@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="saludo">Welcome to sign up form!</string>
+    <string name="nombre">Name</string>
+    <string name="apellidos">Surname</string>
+    <string name="email">Email</string>
+    <string name="clave">Password</string>
+</resources>

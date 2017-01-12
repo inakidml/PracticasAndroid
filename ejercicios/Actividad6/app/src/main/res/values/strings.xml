@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Actividad6</string>
+    <string name="saludo">Bienvenido al formulario de registro!</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="email">Email</string>
+    <string name="clave">Clave</string>
+</resources>
