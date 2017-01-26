@@ -21,7 +21,7 @@ public class Tablero {
 
     int tableroPrincipìante[][] = new int[8][8];
     int tableroAmateur[][] = new int[12][12];
-    int tableroAvanzado[][] = new int[12][12];
+    int tableroAvanzado[][] = new int[16][16];
 
     static int vacia = 0;
     static int mina = 9;
@@ -40,6 +40,187 @@ public class Tablero {
         }
     }
 
+    private void algoritmoRelleno(int[][] tablero) {
+        int contador = 0; //contador a 0 para saber la posición de las minas
+        for (int j = 0; j < tablero.length; j++) { // recorremos el array y vamos poniendo las minas
+            for (int k = 0; k < tablero.length; k++) {
+                if (posicionMinas.contains(contador)) {
+                    tablero[j][k] = mina;
+                    //
+                    if (j == 0 && k > 0 && k < tablero.length - 1) { // primera fila
+                        if (tablero[j][k + 1] != 9) { // el de delante
+                            tablero[j][k + 1]++;
+                        }
+                        if (tablero[j][k - 1] != 9) { // el de detrás
+                            tablero[j][k - 1]++;
+                        }
+                        if (tablero[j + 1][k] != 9) { // el de debajo
+                            tablero[j + 1][k]++;
+                        }
+                        if (tablero[j + 1][k - 1] != 9) { // el de debajo detrás
+                            tablero[j + 1][k - 1]++;
+                        }
+                        if (tablero[j + 1][k + 1] != 9) { // el de debajo delante
+                            tablero[j + 1][k + 1]++;
+                        }
+                    }
+                    if (j == tablero.length - 1 && k > 0 && k < tablero.length - 1) {  // última fila
+                        if (tablero[j][k + 1] != 9) { // el de delante
+                            tablero[j][k + 1]++;
+                        }
+                        if (tablero[j][k - 1] != 9) { // el de detrás
+                            tablero[j][k - 1]++;
+                        }
+                        if (tablero[j - 1][k - 1] != 9) { // el de arriba detras
+                            tablero[j - 1][k - 1]++;
+                        }
+                        if (tablero[j - 1][k] != 9) {  // el de arriba
+                            tablero[j - 1][k]++;
+                        }
+                        if (tablero[j - 1][k + 1] != 9) { // el de arriba delante
+                            tablero[j - 1][k + 1]++;
+                        }
+                    }
+                    if (j == 0 && k == 0) { // primera casilla primera fila
+                        if (tablero[j][k + 1] != 9) { // el de delante
+                            tablero[j][k + 1]++;
+                        }
+                        if (tablero[j + 1][k] != 9) { // el de debajo
+                            tablero[j + 1][k]++;
+                        }
+                        if (tablero[j + 1][k + 1] != 9) { // el de debajo delante
+                            tablero[j + 1][k + 1]++;
+                        }
+                    }
+                    if (j == 0 && k == tablero.length - 1) { //ultima casilla primera fila
+                        if (tablero[j][k - 1] != 9) { // el de detrás
+                            tablero[j][k - 1]++;
+                        }
+                        if (tablero[j + 1][k - 1] != 9) { // el de debajo detrás
+                            tablero[j + 1][k - 1]++;
+                        }
+                        if (tablero[j + 1][k] != 9) { // el de debajo
+                            tablero[j + 1][k]++;
+                        }
+
+                    }
+
+                    if (j == tablero.length - 1 && k == 0) { // primera casilla última fila
+                        if (tablero[j][k + 1] != 9) { // el de delante
+                            tablero[j][k + 1]++;
+                        }
+                        if (tablero[j - 1][k] != 9) {  // el de arriba
+                            tablero[j - 1][k]++;
+                        }
+                        if (tablero[j - 1][k + 1] != 9) { // el de arriba delante
+                            tablero[j - 1][k + 1]++;
+                        }
+                    }
+                    if (j == tablero.length - 1 && k == tablero.length - 1) { //ultima casilla última fila
+                        if (tablero[j][k - 1] != 9) { // el de detrás
+                            tablero[j][k - 1]++;
+                        }
+                        if (tablero[j][k - 1] != 9) { // el de detrás
+                            tablero[j][k - 1]++;
+                        }
+                        if (tablero[j - 1][k - 1] != 9) { // el de arriba detras
+                            tablero[j - 1][k - 1]++;
+                        }
+                        if (tablero[j - 1][k] != 9) {  // el de arriba
+                            tablero[j - 1][k]++;
+                        }
+                    }
+                    if (k == 0 && j > 0 && j < tablero.length - 1) { // primera columna
+                        if (tablero[j][k + 1] != 9) { // el de delante
+                            tablero[j][k + 1]++;
+                        }
+
+                        if (tablero[j + 1][k] != 9) { // el de debajo
+                            tablero[j + 1][k]++;
+                        }
+
+                        if (tablero[j + 1][k + 1] != 9) { // el de debajo delante
+                            tablero[j + 1][k + 1]++;
+                        }
+                        if (tablero[j - 1][k + 1] != 9) { // el de arriba delante
+                            tablero[j - 1][k + 1]++;
+                        }
+                        if (tablero[j - 1][k] != 9) {  // el de arriba
+                            tablero[j - 1][k]++;
+                        }
+                    }
+                    if (k == tablero.length - 1 && j > 0 && j < tablero.length - 1) { // última columna
+
+                        if (tablero[j + 1][k] != 9) { // el de debajo
+                            tablero[j + 1][k]++;
+                        }
+
+                        if (tablero[j - 1][k] != 9) {  // el de arriba
+                            tablero[j - 1][k]++;
+                        }
+                        if (tablero[j][k - 1] != 9) { // el de detrás
+                            tablero[j][k - 1]++;
+                        }
+                        if (tablero[j - 1][k - 1] != 9) { // el de arriba detras
+                            tablero[j - 1][k - 1]++;
+                        }
+                        if (tablero[j + 1][k - 1] != 9) { // el de debajo detrás
+                            tablero[j + 1][k - 1]++;
+                        }
+                    }
+
+                    if (j > 0 && j < tablero.length - 1 && k > 0 && k < tablero.length - 1) { //casillas centrales
+                        if (tablero[j][k + 1] != 9) { // el de delante
+                            tablero[j][k + 1]++;
+                        }
+                        if (tablero[j][k - 1] != 9) { // el de detrás
+                            tablero[j][k - 1]++;
+                        }
+                        if (tablero[j - 1][k - 1] != 9) { // el de arriba detras
+                            tablero[j - 1][k - 1]++;
+                        }
+                        if (tablero[j - 1][k] != 9) {  // el de arriba
+                            tablero[j - 1][k]++;
+                        }
+                        if (tablero[j - 1][k + 1] != 9) { // el de arriba delante
+                            tablero[j - 1][k + 1]++;
+                        }
+                        if (tablero[j + 1][k] != 9) { // el de debajo
+                            tablero[j + 1][k]++;
+                        }
+                        if (tablero[j + 1][k - 1] != 9) { // el de debajo detrás
+                            tablero[j + 1][k - 1]++;
+                        }
+                        if (tablero[j + 1][k + 1] != 9) { // el de debajo delante
+                            tablero[j + 1][k + 1]++;
+                        }
+                    }
+                }
+                contador++;
+            }
+        }
+    }
+
+    private void imprimirPosiciones() {
+
+        for (int posicion : posicionMinas) { // recorremos el array de posiciones para mostrarlo
+            System.out.println("posición mina: " + posicion);
+
+        }
+    }
+
+    private void contarMinas(int[][] tablero){
+        int contador=0;
+        for (int j = 0; j < tablero.length; j++) {
+            for (int k = 0; k < tablero.length; k++) {
+                if(tablero[j][k]==9){contador++;}
+            }
+
+        }
+        System.out.println("Número de minas= "+ contador);
+
+    }
+
     private void rellenarTablero(int nivel) {
 
         Random r = new Random();
@@ -55,181 +236,10 @@ public class Tablero {
                     }
                 }
                 Collections.sort(posicionMinas); //ordenamos el arraylist
-
-                contador = 0; //contador a 0 para saber la posición de las minas
-                for (int j = 0; j < tableroPrincipìante.length; j++) { // recorremos el array y vamos poniendo las minas
-                    for (int k = 0; k < tableroPrincipìante.length; k++) {
-                        if (posicionMinas.contains(contador)) {
-                            tableroPrincipìante[j][k] = mina;
-                            //
-                            if (j == 0 && k > 0 && k < tableroPrincipìante.length - 1) { // primera fila
-                                if (tableroPrincipìante[j][k + 1] != 9) { // el de delante
-                                    tableroPrincipìante[j][k + 1]++;
-                                }
-                                if (tableroPrincipìante[j][k - 1] != 9) { // el de detrás
-                                    tableroPrincipìante[j][k - 1]++;
-                                }
-                                if (tableroPrincipìante[j + 1][k] != 9) { // el de debajo
-                                    tableroPrincipìante[j + 1][k]++;
-                                }
-                                if (tableroPrincipìante[j + 1][k - 1] != 9) { // el de debajo detrás
-                                    tableroPrincipìante[j + 1][k - 1]++;
-                                }
-                                if (tableroPrincipìante[j + 1][k + 1] != 9) { // el de debajo delante
-                                    tableroPrincipìante[j + 1][k + 1]++;
-                                }
-                            }
-                            if (j == tableroPrincipìante.length - 1 && k > 0 && k < tableroPrincipìante.length - 1) {  // última fila
-                                if (tableroPrincipìante[j][k + 1] != 9) { // el de delante
-                                    tableroPrincipìante[j][k + 1]++;
-                                }
-                                if (tableroPrincipìante[j][k - 1] != 9) { // el de detrás
-                                    tableroPrincipìante[j][k - 1]++;
-                                }
-                                if (tableroPrincipìante[j - 1][k - 1] != 9) { // el de arriba detras
-                                    tableroPrincipìante[j - 1][k - 1]++;
-                                }
-                                if (tableroPrincipìante[j - 1][k] != 9) {  // el de arriba
-                                    tableroPrincipìante[j - 1][k]++;
-                                }
-                                if (tableroPrincipìante[j - 1][k + 1] != 9) { // el de arriba delante
-                                    tableroPrincipìante[j - 1][k + 1]++;
-                                }
-                            }
-                            if (j == 0 && k == 0) { // primera casilla primera fila
-                                if (tableroPrincipìante[j][k + 1] != 9) { // el de delante
-                                    tableroPrincipìante[j][k + 1]++;
-                                }
-                                if (tableroPrincipìante[j + 1][k] != 9) { // el de debajo
-                                    tableroPrincipìante[j + 1][k]++;
-                                }
-                                if (tableroPrincipìante[j + 1][k + 1] != 9) { // el de debajo delante
-                                    tableroPrincipìante[j + 1][k + 1]++;
-                                }
-                            }
-                            if (j == 0 && k == tableroPrincipìante.length - 1) { //ultima casilla primera fila
-                                if (tableroPrincipìante[j][k - 1] != 9) { // el de detrás
-                                    tableroPrincipìante[j][k - 1]++;
-                                }
-                                if (tableroPrincipìante[j + 1][k - 1] != 9) { // el de debajo detrás
-                                    tableroPrincipìante[j + 1][k - 1]++;
-                                }
-                                if (tableroPrincipìante[j + 1][k] != 9) { // el de debajo
-                                    tableroPrincipìante[j + 1][k]++;
-                                }
-
-                            }
-
-
-                            if (j == tableroPrincipìante.length - 1 && k == 0) { // primera casilla última fila
-                                if (tableroPrincipìante[j][k + 1] != 9) { // el de delante
-                                    tableroPrincipìante[j][k + 1]++;
-                                }
-                                if (tableroPrincipìante[j - 1][k] != 9) {  // el de arriba
-                                    tableroPrincipìante[j - 1][k]++;
-                                }
-                                if (tableroPrincipìante[j - 1][k + 1] != 9) { // el de arriba delante
-                                    tableroPrincipìante[j - 1][k + 1]++;
-                                }
-                            }
-
-                            if (j == tableroPrincipìante.length - 1 && k == tableroPrincipìante.length - 1) { //ultima casilla última fila
-                                if (tableroPrincipìante[j][k - 1] != 9) { // el de detrás
-                                    tableroPrincipìante[j][k - 1]++;
-                                }
-                                if (tableroPrincipìante[j][k - 1] != 9) { // el de detrás
-                                    tableroPrincipìante[j][k - 1]++;
-                                }
-                                if (tableroPrincipìante[j - 1][k - 1] != 9) { // el de arriba detras
-                                    tableroPrincipìante[j - 1][k - 1]++;
-                                }
-                                if (tableroPrincipìante[j - 1][k] != 9) {  // el de arriba
-                                    tableroPrincipìante[j - 1][k]++;
-                                }
-
-                            }
-
-                            if (k == 0 && j > 0 && j < tableroPrincipìante.length - 1) { // primera columna
-                                if (tableroPrincipìante[j][k + 1] != 9) { // el de delante
-                                    tableroPrincipìante[j][k + 1]++;
-                                }
-
-                                if (tableroPrincipìante[j + 1][k] != 9) { // el de debajo
-                                    tableroPrincipìante[j + 1][k]++;
-                                }
-
-                                if (tableroPrincipìante[j + 1][k + 1] != 9) { // el de debajo delante
-                                    tableroPrincipìante[j + 1][k + 1]++;
-                                }
-                                if (tableroPrincipìante[j - 1][k + 1] != 9) { // el de arriba delante
-                                    tableroPrincipìante[j - 1][k + 1]++;
-                                }
-                                if (tableroPrincipìante[j - 1][k] != 9) {  // el de arriba
-                                    tableroPrincipìante[j - 1][k]++;
-                                }
-                            }
-
-                            if (k == tableroPrincipìante.length - 1 && j > 0 && j < tableroPrincipìante.length - 1) { // última columna
-
-                                if (tableroPrincipìante[j + 1][k] != 9) { // el de debajo
-                                    tableroPrincipìante[j + 1][k]++;
-                                }
-
-                                if (tableroPrincipìante[j - 1][k] != 9) {  // el de arriba
-                                    tableroPrincipìante[j - 1][k]++;
-                                }
-                                if (tableroPrincipìante[j][k - 1] != 9) { // el de detrás
-                                    tableroPrincipìante[j][k - 1]++;
-                                }
-                                if (tableroPrincipìante[j - 1][k - 1] != 9) { // el de arriba detras
-                                    tableroPrincipìante[j - 1][k - 1]++;
-                                }
-                                if (tableroPrincipìante[j + 1][k - 1] != 9) { // el de debajo detrás
-                                    tableroPrincipìante[j + 1][k - 1]++;
-                                }
-                            }
-
-
-                            if (j > 0 && j < tableroPrincipìante.length - 1 && k > 0 && k < tableroPrincipìante.length - 1) { //casillas centrales
-                                if (tableroPrincipìante[j][k + 1] != 9) { // el de delante
-                                    tableroPrincipìante[j][k + 1]++;
-                                }
-                                if (tableroPrincipìante[j][k - 1] != 9) { // el de detrás
-                                    tableroPrincipìante[j][k - 1]++;
-                                }
-                                if (tableroPrincipìante[j - 1][k - 1] != 9) { // el de arriba detras
-                                    tableroPrincipìante[j - 1][k - 1]++;
-                                }
-                                if (tableroPrincipìante[j - 1][k] != 9) {  // el de arriba
-                                    tableroPrincipìante[j - 1][k]++;
-                                }
-                                if (tableroPrincipìante[j - 1][k + 1] != 9) { // el de arriba delante
-                                    tableroPrincipìante[j - 1][k + 1]++;
-                                }
-                                if (tableroPrincipìante[j + 1][k] != 9) { // el de debajo
-                                    tableroPrincipìante[j + 1][k]++;
-                                }
-                                if (tableroPrincipìante[j + 1][k - 1] != 9) { // el de debajo detrás
-                                    tableroPrincipìante[j + 1][k - 1]++;
-                                }
-                                if (tableroPrincipìante[j + 1][k + 1] != 9) { // el de debajo delante
-                                    tableroPrincipìante[j + 1][k + 1]++;
-                                }
-
-                            }
-
-                        }
-                        contador++;
-
-                    }
-                }
-
-                for (int posicion : posicionMinas) { // recorremos el array de posiciones para mostrarlo
-                    System.out.println("posición mina: " + posicion);
-
-                }
-
+                imprimirPosiciones();
+                algoritmoRelleno(tableroPrincipìante);
                 mostrarTablero(tableroPrincipìante);
+                contarMinas(tableroPrincipìante);
 
                 break;
 
@@ -242,12 +252,11 @@ public class Tablero {
                     }
                 }
                 Collections.sort(posicionMinas);
-                /*
-                for (int posicion : posicionMinas) { // recorremos el array de posiciones para mostrarlo
-                    System.out.println("posición mina: " + posicion);
+                imprimirPosiciones();
+                algoritmoRelleno(tableroAmateur);
+                mostrarTablero(tableroAmateur);
+                contarMinas(tableroAmateur);
 
-                }
-                */
                 break;
 
             case 3: //avanzado
@@ -259,12 +268,12 @@ public class Tablero {
                     }
                 }
                 Collections.sort(posicionMinas);
-                /*
-                for (int posicion : posicionMinas) { // recorremos el array de posiciones para mostrarlo
-                    System.out.println("posición mina: " + posicion);
+                imprimirPosiciones();
+                algoritmoRelleno(tableroAvanzado);
+                mostrarTablero(tableroAvanzado);
+                contarMinas(tableroAvanzado);
 
-                }
-                */
+
                 break;
 
 
