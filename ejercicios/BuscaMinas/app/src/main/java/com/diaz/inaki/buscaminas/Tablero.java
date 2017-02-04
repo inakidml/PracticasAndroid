@@ -202,6 +202,21 @@ public class Tablero {
                 contador++;
             }
         }
+        tableroLineal(tablero);
+    }
+
+    private void tableroLineal(int[][] tablero){
+        posicionMinas.clear();
+        for (int j = 0; j < tablero.length; j++) { // recorremos el array y vamos poniendo las minas
+            for (int k = 0; k < tablero.length; k++) {
+                posicionMinas.add(tablero[j][k]);
+            }
+        }
+
+    }
+
+    public List<Integer> getPosicionMinas() {
+        return posicionMinas;
     }
 
     private void imprimirPosiciones() { // muestra en que posiciones irán las minas
@@ -262,8 +277,8 @@ public class Tablero {
                 algoritmoRelleno(tableroAmateur);
                 if (MainActivity.DEBUG) {
                     imprimirPosiciones();
-                    mostrarTablero(tableroPrincipìante);
-                    contarMinas(tableroPrincipìante);
+                    mostrarTablero(tableroAmateur);
+                    contarMinas(tableroAmateur);
                 }
                 break;
 
@@ -281,8 +296,8 @@ public class Tablero {
 
                 if (MainActivity.DEBUG) {
                     imprimirPosiciones();
-                    mostrarTablero(tableroPrincipìante);
-                    contarMinas(tableroPrincipìante);
+                    mostrarTablero(tableroAvanzado);
+                    contarMinas(tableroAvanzado);
                 }
 
 

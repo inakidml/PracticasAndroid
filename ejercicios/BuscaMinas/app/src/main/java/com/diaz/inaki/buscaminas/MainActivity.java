@@ -1,5 +1,6 @@
 package com.diaz.inaki.buscaminas;
 
+import android.graphics.Color;
 import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,18 +14,20 @@ import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static boolean DEBUG = false;
+    public static boolean DEBUG = true;
 
 
     public static int tamanio=8;
     public static int nivel=1; //nivel 1 principiante 2 amateur 3 avanzado
+    private Tablero t;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         seleccionarNivel(2);
-        Tablero t = new Tablero(nivel);
+        t = new Tablero(nivel);
         anadirBotones();
 
     }
@@ -71,9 +74,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         g.setColumnCount(tamanio);
         g.setRowCount(tamanio);
         int contadorBotones = 0;
-        Button b;
+        BotonConTablero b;
         for (int i = 0; i < (tamanio * tamanio); i++) {
-            b = new Button(this);
+            b = new BotonConTablero(this, t);
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
                     width,
                     height);
@@ -81,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             b.setLayoutParams(params);
             b.setPadding(0, 0, 0, 0);
             b.setId(contadorBotones);//identificador único
-            b.setText("" + b.getId());
+            b.setText("");
             b.setBackgroundResource(R.drawable.button_custom);
 
             b.setOnClickListener(this);
@@ -92,6 +95,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-view.getId();
+
+        if(view.getClass().getSimpleName().equals("BotonConTablero")){
+            BotonConTablero b = (BotonConTablero) view;
+            
+            b.setText("" + b.getTablero().getPosicionMinas().get(b.getId()));
+        }
     }
 }
