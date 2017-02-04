@@ -12,26 +12,29 @@ import java.util.Random;
 public class Tablero {
 
     //NIVELES DEL JUEGO
-
     final int PRINCIPIANTE[] = {8, 8, 10, 64}; //alto, ancho, número de minas, num casillas
     final int AMATEUR[] = {12, 12, 30, 144};
     final int AVANZADO[] = {16, 16, 60, 256};
 
-    List<Integer> posicionMinas = new ArrayList<>();
+    //para posiciones aleatorias
+    private List<Integer> posicionMinas = new ArrayList<>();
 
-    int tableroPrincipìante[][] = new int[8][8];
-    int tableroAmateur[][] = new int[12][12];
-    int tableroAvanzado[][] = new int[16][16];
+    //tableros
+    private int tableroPrincipìante[][] = new int[8][8];
+    private int tableroAmateur[][] = new int[12][12];
+    private int tableroAvanzado[][] = new int[16][16];
 
-    static int vacia = 0;
-    static int mina = 9;
+    // casilla con 0 vacia, con nueve mina, 1-8, número de minas vecinas
+    public static int vacia = 0;
+    public static int mina = 9;
 
+    //constructor al que le pasamos el nivel
     public Tablero(int nivel) {
         rellenarTablero(nivel);
 
     }
 
-    private void mostrarTablero(int[][] tablero) {
+    private void mostrarTablero(int[][] tablero) { //mostrar el tablero para pruebas
         for (int j = 0; j < tablero.length; j++) {
             for (int k = 0; k < tablero.length; k++) {
                 System.out.print(tablero[j][k]);
@@ -40,7 +43,7 @@ public class Tablero {
         }
     }
 
-    private void algoritmoRelleno(int[][] tablero) {
+    private void algoritmoRelleno(int[][] tablero) {//rellena el tablero con las minas y adyacentes
         int contador = 0; //contador a 0 para saber la posición de las minas
         for (int j = 0; j < tablero.length; j++) { // recorremos el array y vamos poniendo las minas
             for (int k = 0; k < tablero.length; k++) {
@@ -201,7 +204,7 @@ public class Tablero {
         }
     }
 
-    private void imprimirPosiciones() {
+    private void imprimirPosiciones() { // muestra en que posiciones irán las minas
 
         for (int posicion : posicionMinas) { // recorremos el array de posiciones para mostrarlo
             System.out.println("posición mina: " + posicion);
@@ -209,19 +212,21 @@ public class Tablero {
         }
     }
 
-    private void contarMinas(int[][] tablero){
-        int contador=0;
+    private void contarMinas(int[][] tablero) { //DEBUG
+        int contador = 0;
         for (int j = 0; j < tablero.length; j++) {
             for (int k = 0; k < tablero.length; k++) {
-                if(tablero[j][k]==9){contador++;}
+                if (tablero[j][k] == 9) {
+                    contador++;
+                }
             }
 
         }
-        System.out.println("Número de minas= "+ contador);
+        System.out.println("Número de minas= " + contador);
 
     }
 
-    private void rellenarTablero(int nivel) {
+    private void rellenarTablero(int nivel) {//pasandole el nivel, nos rellena un arraylist con las posiciones aleatorias de las minas y despues crea el tablero en un array
 
         Random r = new Random();
         int contador = 0;
@@ -229,18 +234,19 @@ public class Tablero {
 
             case 1: //principiante
                 while (contador < PRINCIPIANTE[2]) { //rellenamos un arraylist con las posiciones
-                    int i = r.nextInt(PRINCIPIANTE[3]);
-                    if (!posicionMinas.contains(i)) {
+                    int i = r.nextInt(PRINCIPIANTE[3]); //un num aleatorio con máximo de minas
+                    if (!posicionMinas.contains(i)) { // si ya existe en al arraylist no lo añadimos
                         posicionMinas.add(i);
                         contador++;
                     }
                 }
                 Collections.sort(posicionMinas); //ordenamos el arraylist
-                imprimirPosiciones();
                 algoritmoRelleno(tableroPrincipìante);
-                mostrarTablero(tableroPrincipìante);
-                contarMinas(tableroPrincipìante);
-
+                if (MainActivity.DEBUG) {
+                    imprimirPosiciones();
+                    mostrarTablero(tableroPrincipìante);
+                    contarMinas(tableroPrincipìante);
+                }
                 break;
 
             case 2: // amateur
@@ -252,11 +258,13 @@ public class Tablero {
                     }
                 }
                 Collections.sort(posicionMinas);
-                imprimirPosiciones();
-                algoritmoRelleno(tableroAmateur);
-                mostrarTablero(tableroAmateur);
-                contarMinas(tableroAmateur);
 
+                algoritmoRelleno(tableroAmateur);
+                if (MainActivity.DEBUG) {
+                    imprimirPosiciones();
+                    mostrarTablero(tableroPrincipìante);
+                    contarMinas(tableroPrincipìante);
+                }
                 break;
 
             case 3: //avanzado
@@ -268,10 +276,14 @@ public class Tablero {
                     }
                 }
                 Collections.sort(posicionMinas);
-                imprimirPosiciones();
+
                 algoritmoRelleno(tableroAvanzado);
-                mostrarTablero(tableroAvanzado);
-                contarMinas(tableroAvanzado);
+
+                if (MainActivity.DEBUG) {
+                    imprimirPosiciones();
+                    mostrarTablero(tableroPrincipìante);
+                    contarMinas(tableroPrincipìante);
+                }
 
 
                 break;
