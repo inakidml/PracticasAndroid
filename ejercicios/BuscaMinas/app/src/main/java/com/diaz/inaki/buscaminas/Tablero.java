@@ -19,6 +19,8 @@ public class Tablero {
     //para posiciones aleatorias
     private List<Integer> posicionMinas = new ArrayList<>();
 
+    private int[][] posicionEnArray = new int[256][2]; // posicion en el array 0 - j, 1 - k
+    private int[][] arrayEnPosicion = new int[16][16];
     //tableros
     private int tableroPrincipìante[][] = new int[8][8];
     private int tableroAmateur[][] = new int[12][12];
@@ -43,10 +45,33 @@ public class Tablero {
         }
     }
 
+    public int[][] getTableroPrincipìante() {
+        return tableroPrincipìante;
+    }
+
+    public int[][] getTableroAmateur() {
+        return tableroAmateur;
+    }
+
+    public int[][] getTableroAvanzado() {
+        return tableroAvanzado;
+    }
+
+    public int[][] getPosicionEnArray() {
+        return posicionEnArray;
+    }
+
+    public int[][] getArrayEnPosicion() {
+        return arrayEnPosicion;
+    }
+
     private void algoritmoRelleno(int[][] tablero) {//rellena el tablero con las minas y adyacentes
         int contador = 0; //contador a 0 para saber la posición de las minas
-        for (int j = 0; j < tablero.length; j++) { // recorremos el array y vamos poniendo las minas
+        for (int j = 0; j < tablero.length; j++) { // recorremos el array y vamos poniendo las minas y sus vecinas
             for (int k = 0; k < tablero.length; k++) {
+                posicionEnArray[contador][0]=j;
+                posicionEnArray[contador][1]=k;
+                arrayEnPosicion[j][k]=contador;
                 if (posicionMinas.contains(contador)) {
                     tablero[j][k] = mina;
                     //
@@ -123,9 +148,7 @@ public class Tablero {
                         if (tablero[j][k - 1] != 9) { // el de detrás
                             tablero[j][k - 1]++;
                         }
-                        if (tablero[j][k - 1] != 9) { // el de detrás
-                            tablero[j][k - 1]++;
-                        }
+
                         if (tablero[j - 1][k - 1] != 9) { // el de arriba detras
                             tablero[j - 1][k - 1]++;
                         }
@@ -202,6 +225,9 @@ public class Tablero {
                 contador++;
             }
         }
+        if(MainActivity.DEBUG){
+            imprimirPosiciones();
+        }
         tableroLineal(tablero);
     }
 
@@ -258,7 +284,6 @@ public class Tablero {
                 Collections.sort(posicionMinas); //ordenamos el arraylist
                 algoritmoRelleno(tableroPrincipìante);
                 if (MainActivity.DEBUG) {
-                    imprimirPosiciones();
                     mostrarTablero(tableroPrincipìante);
                     contarMinas(tableroPrincipìante);
                 }
@@ -276,7 +301,6 @@ public class Tablero {
 
                 algoritmoRelleno(tableroAmateur);
                 if (MainActivity.DEBUG) {
-                    imprimirPosiciones();
                     mostrarTablero(tableroAmateur);
                     contarMinas(tableroAmateur);
                 }
@@ -295,7 +319,6 @@ public class Tablero {
                 algoritmoRelleno(tableroAvanzado);
 
                 if (MainActivity.DEBUG) {
-                    imprimirPosiciones();
                     mostrarTablero(tableroAvanzado);
                     contarMinas(tableroAvanzado);
                 }
