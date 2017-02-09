@@ -63,13 +63,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dialog.show();
 
     }
-    //Inflar Menú
-
-    //http://www.sgoliver.net/blog/menus-en-android-i-conceptos-basicos/
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        //Inflar Menú
+        //http://www.sgoliver.net/blog/menus-en-android-i-conceptos-basicos/
+
         //Alternativa 1
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;

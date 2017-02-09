@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">BuscaMinas</string>
-    <string name="dialog_message">El juego es tipo buscaminas: Cuando pulsas en una casilla, sale un número que identifica cuántas minas hay alrededor. Tenc uidado porque si pulsas en una casilla que tenga mina escondida, perderás. Si crees o tienes la certeza de que hat mina, haz un click largo sobre la casilla para señalarla. No hagas un click largo en una casilla donde no hay un amina, porque perderás. Ganas una vez hayas encontrado todas las minas.</string>
+    <string name="dialog_message">El juego es tipo buscaminas: Cuando pulsas en una casilla, sale un número que identifica cuántas minas hay alrededor. Ten cuidado porque si pulsas en una casilla que tenga mina escondida, perderás. Si crees o tienes la certeza de que hat mina, haz un click largo sobre la casilla para señalarla. No hagas un click largo en una casilla donde no hay un amina, porque perderás. Ganas una vez hayas encontrado todas las minas.</string>
     <string name="dialog_title">Instrucciones</string>
-    <string name="dialog_fin">El juego se ha terminado, si quieres puedes volver a intentarlo</string>
+    <string name="dialog_fin">El juego se ha terminado, si quieres, puedes volver a intentarlo</string>
     <string name="dialog_fin_title">Fin del Juego</string>
 </resources>
