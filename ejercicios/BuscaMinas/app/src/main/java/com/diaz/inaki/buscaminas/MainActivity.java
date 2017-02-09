@@ -15,7 +15,7 @@ import android.widget.GridLayout;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener {
 
-    public static boolean DEBUG = false;
+    public static boolean DEBUG = true;
     public static int[] casillasNivel = {8, 12, 16};
 
 
