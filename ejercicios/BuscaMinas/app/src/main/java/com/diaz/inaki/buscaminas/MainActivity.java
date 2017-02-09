@@ -1,24 +1,25 @@
 package com.diaz.inaki.buscaminas;
 
-import android.graphics.Color;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.graphics.Point;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.GridLayout;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener {
 
-    public static boolean DEBUG = true;
+    public static boolean DEBUG = false;
     public static int[] casillasNivel = {8, 12, 16};
 
 
-    public static int tamanio = 8;
+    public static int tamanio = 8; // tamanio del tablero
     public static int nivel = 1; //nivel 1 principiante 2 amateur 3 avanzado
     private Tablero t;
 
@@ -27,11 +28,133 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        seleccionarNivel(2);
-        t = new Tablero(nivel);
-        anadirBotones();
+        prepararTablero(nivel);
 
     }
+
+    public void prepararTablero(int nivel) {
+        GridLayout g = (GridLayout) findViewById(R.id.grid1);
+        g.removeAllViews();
+        seleccionarNivel(nivel);
+        t = new Tablero(nivel);
+        anadirBotones();
+    }
+
+    public void finDeJuego() {
+        GridLayout g = (GridLayout) findViewById(R.id.grid1);
+        int childNum = g.getChildCount();
+        for (int i = 0; i < childNum; i++) {
+            g.getChildAt(i).setEnabled(false);
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        // 2. Chain together various setter methods to set the dialog characteristics
+        builder.setMessage(R.string.dialog_fin);
+        builder.setTitle(R.string.dialog_fin_title);
+        //Añadir Botón OK
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User clicked OK button
+                dialog.dismiss();
+            }
+        });
+        // 3. Get the AlertDialog from create()
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+    //Inflar Menú
+
+    //http://www.sgoliver.net/blog/menus-en-android-i-conceptos-basicos/
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //Alternativa 1
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    // Opción pulsada en el menú
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.MnuOpc1://Dialogo de Instrucciones
+                // https://developer.android.com/guide/topics/ui/dialogs.html?hl=es
+
+                // 1. Instantiate an AlertDialog.Builder with its constructor
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                // 2. Chain together various setter methods to set the dialog characteristics
+                builder.setMessage(R.string.dialog_message);
+                builder.setTitle(R.string.dialog_title);
+                //Añadir Botón OK
+                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+                        dialog.dismiss();
+                    }
+                });
+                // 3. Get the AlertDialog from create()
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                return true;
+
+            case R.id.MnuOpc2: // Comienza el juego
+
+                prepararTablero(nivel);
+
+
+                return true;
+            case R.id.MnuOpc3:
+                System.out.println("Opcion 3 pulsada!");
+
+                // Creating and Building the Dialog
+
+                AlertDialog.Builder builderNivel = new AlertDialog.Builder(this);
+                builderNivel.setTitle("Select The Difficulty Level");
+                CharSequence[] items = {" Principiante ", " Amateur ", " Avanzado "};
+                builderNivel.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+
+                        switch (item) {
+                            case 0:
+                                //System.out.println("Nivel 1");
+                                prepararTablero(1);
+                                break;
+                            case 1:
+                                prepararTablero(2);
+                                //System.out.println("Nivel 2");
+                                break;
+                            case 2:
+                                prepararTablero(3);
+                                //System.out.println("Nivel 3");
+                                break;
+
+                        }
+                        dialog.dismiss();
+                    }
+                });
+                final AlertDialog levelDialog;
+                levelDialog = builderNivel.create();
+                levelDialog.show();
+            case R.id.MnuOpc4:
+                /*
+                Dialog dialogSpinner=new Dialog(this);
+                dialogSpinner.setContentView(R.drawable.spinner);
+
+                item.setIcon(R.drawable.mushroom_super_24680);
+                */
+
+
+
+
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
     public void seleccionarNivel(int n) {// establece nivel y tamaño tablero
         switch (n) {
@@ -59,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return size;
     }
 
-    public void anadirBotones() { // añade los botones
+    public void anadirBotones() { // añade los botones según el tamanio del tablero
         Point size = tamanioPantalla();
         int width = (size.x / tamanio);
         int height = ((size.y - 120) / tamanio);           //correción por la barra de menú (+/- 120)
@@ -89,6 +212,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             b.setBackgroundResource(R.drawable.button_custom);
 
             b.setOnClickListener(this);
+            b.setOnLongClickListener(this);
             g.addView(b, i);
             contadorBotones++;
         }
@@ -186,10 +310,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     descubrirCeros(b.getTablero().getArrayEnPosicion()[j][k + 1]);
                 }
                 if (tablero[j - 1][k] == 0) {  // el de arriba
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j-1][k]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j - 1][k]);
                 }
                 if (tablero[j - 1][k + 1] == 0) { // el de arriba delante
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j-1][k + 1]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j - 1][k + 1]);
                 }
             }
             if (j == tablero.length - 1 && k == tablero.length - 1) { //ultima casilla última fila
@@ -198,10 +322,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 if (tablero[j - 1][k - 1] == 0) { // el de arriba detras
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j -1][k - 1]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j - 1][k - 1]);
                 }
                 if (tablero[j - 1][k] == 0) {  // el de arriba
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j-1][k]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j - 1][k]);
                 }
             }
             if (k == 0 && j > 0 && j < tablero.length - 1) { // primera columna
@@ -210,36 +334,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 if (tablero[j + 1][k] == 0) { // el de debajo
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j+1][k]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j + 1][k]);
                 }
 
                 if (tablero[j + 1][k + 1] == 0) { // el de debajo delante
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j+1][k + 1]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j + 1][k + 1]);
                 }
                 if (tablero[j - 1][k + 1] == 0) { // el de arriba delante
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j-1][k + 1]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j - 1][k + 1]);
                 }
                 if (tablero[j - 1][k] == 0) {  // el de arriba
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j-1][k]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j - 1][k]);
                 }
             }
             if (k == tablero.length - 1 && j > 0 && j < tablero.length - 1) { // última columna
 
                 if (tablero[j + 1][k] == 0) { // el de debajo
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j+1][k]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j + 1][k]);
                 }
 
                 if (tablero[j - 1][k] == 0) {  // el de arriba
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j-1][k]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j - 1][k]);
                 }
                 if (tablero[j][k - 1] == 0) { // el de detrás
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j][k-1]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j][k - 1]);
                 }
                 if (tablero[j - 1][k - 1] == 0) { // el de arriba detras
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j-1][k - 1]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j - 1][k - 1]);
                 }
                 if (tablero[j + 1][k - 1] == 0) { // el de debajo detrás
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j+1][k - 1]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j + 1][k - 1]);
                 }
             }
 
@@ -251,22 +375,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     descubrirCeros(b.getTablero().getArrayEnPosicion()[j][k - 1]);
                 }
                 if (tablero[j - 1][k - 1] == 0) { // el de arriba detras
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j-1][k - 1]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j - 1][k - 1]);
                 }
                 if (tablero[j - 1][k] == 0) {  // el de arriba
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j-1][k]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j - 1][k]);
                 }
                 if (tablero[j - 1][k + 1] == 0) { // el de arriba delante
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j-1][k + 1]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j - 1][k + 1]);
                 }
                 if (tablero[j + 1][k] == 0) { // el de debajo
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j+1][k]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j + 1][k]);
                 }
                 if (tablero[j + 1][k - 1] == 0) { // el de debajo detrás
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j+1][k - 1]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j + 1][k - 1]);
                 }
                 if (tablero[j + 1][k + 1] == 0) { // el de debajo delante
-                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j+1][k + 1]);
+                    descubrirCeros(b.getTablero().getArrayEnPosicion()[j + 1][k + 1]);
                 }
 
             }
@@ -280,10 +404,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (view.getClass().getSimpleName().equals("BotonConTablero")) {
             BotonConTablero b = (BotonConTablero) view;
+            if (!b.isPulsado()) { // si el botón no esta pulsado...
+                switch (b.getTablero().getPosicionMinas().get(b.getId())) {
+                    case 0:
+                        descubrirCeros(b.getId());
+                        break;
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        b.setText("" + b.getTablero().getPosicionMinas().get(b.getId()));
+                        break;
+                    case 9:
+                      b.setBackgroundResource(R.drawable.button_pressed_explosion);
+                        finDeJuego();
+                        break;
+                    default:
+                        System.out.println("No existe esa opción");
+                }
+            }
+        }
+    }
+
+    @Override
+    public boolean onLongClick(View view) {
+        if (view.getClass().getSimpleName().equals("BotonConTablero")) {
+            BotonConTablero b = (BotonConTablero) view;
 
             switch (b.getTablero().getPosicionMinas().get(b.getId())) {
                 case 0:
-                    descubrirCeros(b.getId());
+                    b.setText("" + b.getTablero().getPosicionMinas().get(b.getId()));
+                    finDeJuego();
                     break;
                 case 1:
                 case 2:
@@ -294,14 +449,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case 7:
                 case 8:
                     b.setText("" + b.getTablero().getPosicionMinas().get(b.getId()));
+                    finDeJuego();
                     break;
                 case 9:
-                    b.setText("X");
+                    b.setBackgroundResource(R.drawable.button_pressed_image);
+                    b.setPulsado(true);
                     break;
                 default:
                     System.out.println("No existe esa opción");
             }
 
         }
+
+
+        return false;
     }
 }
+
+

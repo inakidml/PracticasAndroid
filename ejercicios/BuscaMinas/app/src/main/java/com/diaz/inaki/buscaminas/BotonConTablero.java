@@ -10,6 +10,16 @@ import android.widget.Button;
 
 public class BotonConTablero extends Button {
     private Tablero tablero;
+    private boolean pulsado = false;
+
+    public boolean isPulsado() {
+        return pulsado;
+    }
+
+    public void setPulsado(boolean pulsado) {
+
+        this.pulsado = pulsado;
+    }
 
     public BotonConTablero(Context context, Tablero tablero) {
         super(context);
