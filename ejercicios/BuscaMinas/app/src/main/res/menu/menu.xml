@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:BuscaMinas="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <item
+        android:id="@+id/MnuOpc1"
+        android:title="Instrucciones"></item>
+    <item
+        android:id="@+id/MnuOpc2"
+        android:title="Comienza el juego!"></item>
+    <item
+        android:id="@+id/MnuOpc3"
+        android:title="Configura el juego"></item>
+    <item
+        android:id="@+id/MnuOpc4"
+        android:title="Elegir icono"
+        android:icon="@drawable/bomb"
+        BuscaMinas:showAsAction="ifRoom">
+
+    </item>
+</menu>
+
+<!--
+http://www.sgoliver.net/blog/menus-en-android-i-conceptos-basicos/
+-->
