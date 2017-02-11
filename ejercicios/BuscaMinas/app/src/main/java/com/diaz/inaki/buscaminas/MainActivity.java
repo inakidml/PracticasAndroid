@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static int tamanio = 8; // tamanio del tablero
     public static int nivel = 1; //nivel 1 principiante 2 amateur 3 avanzado
     private Tablero t;
-
+    private int contadorMinas=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +37,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         g.removeAllViews();
         seleccionarNivel(nivel);
         t = new Tablero(nivel);
+        contadorMinas=0;
         anadirBotones();
     }
 
-    public void finDeJuego() {
+    public void finDeJuego(int mensaje, int titulo) {
         GridLayout g = (GridLayout) findViewById(R.id.grid1);
         int childNum = g.getChildCount();
         for (int i = 0; i < childNum; i++) {
@@ -49,8 +50,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         // 2. Chain together various setter methods to set the dialog characteristics
-        builder.setMessage(R.string.dialog_fin);
-        builder.setTitle(R.string.dialog_fin_title);
+        builder.setMessage(mensaje);
+        builder.setTitle(titulo);
         //Añadir Botón OK
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -421,7 +422,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     case 9:
                       b.setBackgroundResource(R.drawable.button_pressed_explosion);
-                        finDeJuego();
+                        finDeJuego(R.string.dialog_fin, R.string.dialog_fin_title);
                         break;
                     default:
                         System.out.println("No existe esa opción");
@@ -438,7 +439,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             switch (b.getTablero().getPosicionMinas().get(b.getId())) {
                 case 0:
                     b.setText("" + b.getTablero().getPosicionMinas().get(b.getId()));
-                    finDeJuego();
+                    finDeJuego(R.string.dialog_fin, R.string.dialog_fin_title);
                     break;
                 case 1:
                 case 2:
@@ -449,10 +450,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case 7:
                 case 8:
                     b.setText("" + b.getTablero().getPosicionMinas().get(b.getId()));
-                    finDeJuego();
+                    finDeJuego(R.string.dialog_fin, R.string.dialog_fin_title);
                     break;
                 case 9:
                     b.setBackgroundResource(R.drawable.button_pressed_image);
+                    contadorMinas++;
+                    switch (nivel){
+                        case 1:
+                            if (contadorMinas>=b.getTablero().getPRINCIPIANTE()[2]){
+                                finDeJuego(R.string.dialog_fin_win, R.string.dialog_fin_win_title);
+                            }
+                            break;
+                        case 2:
+                            if (contadorMinas>=b.getTablero().getAMATEUR()[2]){
+                                finDeJuego(R.string.dialog_fin_win, R.string.dialog_fin_win_title);
+                            }
+                            break;
+                        case 3:
+                            if (contadorMinas>=b.getTablero().getAVANZADO()[2]){
+                                finDeJuego(R.string.dialog_fin_win, R.string.dialog_fin_win_title);
+                            }
+                            break;
+                        default:
+                            System.out.println("Nivel mal");
+                    }
+
+
                     b.setPulsado(true);
                     break;
                 default:

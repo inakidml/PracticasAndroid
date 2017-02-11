@@ -4,4 +4,6 @@
     <string name="dialog_title">Instrucciones</string>
     <string name="dialog_fin">El juego se ha terminado, si quieres, puedes volver a intentarlo</string>
     <string name="dialog_fin_title">Fin del Juego</string>
+    <string name="dialog_fin_win">Enhorabuena, ¡ has ganado !</string>
+    <string name="dialog_fin_win_title">You Win</string>
 </resources>

@@ -12,9 +12,11 @@ import java.util.Random;
 public class Tablero {
 
     //NIVELES DEL JUEGO
-    final int PRINCIPIANTE[] = {8, 8, 10, 64}; //alto, ancho, número de minas, num casillas
-    final int AMATEUR[] = {12, 12, 30, 144};
-    final int AVANZADO[] = {16, 16, 60, 256};
+    private final int PRINCIPIANTE[] = {8, 8, 10, 64}; //alto, ancho, número de minas, num casillas
+    private final int AMATEUR[] = {12, 12, 30, 144};
+
+
+    private final int AVANZADO[] = {16, 16, 60, 256};
 
     //para posiciones aleatorias
     private List<Integer> posicionMinas = new ArrayList<>();
@@ -45,6 +47,18 @@ public class Tablero {
         }
     }
 
+    public int[] getAVANZADO() {
+        return AVANZADO;
+    }
+
+    public int[] getPRINCIPIANTE() {
+        return PRINCIPIANTE;
+    }
+
+    public int[] getAMATEUR() {
+        return AMATEUR;
+    }
+
     public int[][] getTableroPrincipìante() {
         return tableroPrincipìante;
     }
@@ -69,9 +83,9 @@ public class Tablero {
         int contador = 0; //contador a 0 para saber la posición de las minas
         for (int j = 0; j < tablero.length; j++) { // recorremos el array y vamos poniendo las minas y sus vecinas
             for (int k = 0; k < tablero.length; k++) {
-                posicionEnArray[contador][0]=j;
-                posicionEnArray[contador][1]=k;
-                arrayEnPosicion[j][k]=contador;
+                posicionEnArray[contador][0] = j;
+                posicionEnArray[contador][1] = k;
+                arrayEnPosicion[j][k] = contador;
                 if (posicionMinas.contains(contador)) {
                     tablero[j][k] = mina;
                     //
@@ -225,13 +239,13 @@ public class Tablero {
                 contador++;
             }
         }
-        if(MainActivity.DEBUG){
+        if (MainActivity.DEBUG) {
             imprimirPosiciones();
         }
         tableroLineal(tablero);
     }
 
-    private void tableroLineal(int[][] tablero){
+    private void tableroLineal(int[][] tablero) {
         posicionMinas.clear();
         for (int j = 0; j < tablero.length; j++) { // recorremos el array y vamos poniendo las minas
             for (int k = 0; k < tablero.length; k++) {
