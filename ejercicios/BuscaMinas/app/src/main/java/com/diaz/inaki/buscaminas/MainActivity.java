@@ -4,13 +4,16 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.graphics.Point;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.GridLayout;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener {
@@ -22,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static int tamanio = 8; // tamanio del tablero
     public static int nivel = 1; //nivel 1 principiante 2 amateur 3 avanzado
     private Tablero t;
-    private int contadorMinas=0;
+    private int contadorMinas = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         g.removeAllViews();
         seleccionarNivel(nivel);
         t = new Tablero(nivel);
-        contadorMinas=0;
+        contadorMinas = 0;
         anadirBotones();
     }
 
@@ -73,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Alternativa 1
         getMenuInflater().inflate(R.menu.menu, menu);
+
         return true;
     }
 
@@ -147,9 +151,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 */
 
 
-
-
-
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -183,17 +184,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return size;
     }
 
+    public int getStatusBarHeight() { //función para saber la altura de la barra de notificaciones
+        int result = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
+
     public void anadirBotones() { // añade los botones según el tamanio del tablero
+
+        // Calculate ActionBar height
+        TypedValue tv = new TypedValue();
+        int actionBarHeight = 0;
+        if (getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
+            actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, getResources().getDisplayMetrics());
+        }
+
+        int statusBarHeight;
+        statusBarHeight = getStatusBarHeight();
+
+        if (DEBUG) {
+            System.out.println("statusbar eight= " + statusBarHeight);
+            System.out.println("actionbar eight= " + actionBarHeight);
+        }
         Point size = tamanioPantalla();
         int width = (size.x / tamanio);
-        int height = ((size.y - 120) / tamanio);           //correción por la barra de menú (+/- 120)
+        int height = ((size.y - (actionBarHeight + statusBarHeight)) / tamanio);           //correción por la barra de menú (+/- 120)
 
         GridLayout g = (GridLayout) findViewById(R.id.grid1);
 
-        // pruebas porque se salen los botones
-       /* g.setUseDefaultMargins(false);
-        g.setAlignmentMode(GridLayout.ALIGN_BOUNDS);
-        g.setRowOrderPreserved(false);*/
 
         //rejilla de los botones
         g.setColumnCount(tamanio);
@@ -421,7 +442,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         b.setText("" + b.getTablero().getPosicionMinas().get(b.getId()));
                         break;
                     case 9:
-                      b.setBackgroundResource(R.drawable.button_pressed_explosion);
+                        b.setBackgroundResource(R.drawable.button_pressed_explosion);
                         finDeJuego(R.string.dialog_fin, R.string.dialog_fin_title);
                         break;
                     default:
@@ -455,19 +476,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case 9:
                     b.setBackgroundResource(R.drawable.button_pressed_image);
                     contadorMinas++;
-                    switch (nivel){
+                    switch (nivel) {
                         case 1:
-                            if (contadorMinas>=b.getTablero().getPRINCIPIANTE()[2]){
+                            if (contadorMinas >= b.getTablero().getPRINCIPIANTE()[2]) {
                                 finDeJuego(R.string.dialog_fin_win, R.string.dialog_fin_win_title);
                             }
                             break;
                         case 2:
-                            if (contadorMinas>=b.getTablero().getAMATEUR()[2]){
+                            if (contadorMinas >= b.getTablero().getAMATEUR()[2]) {
                                 finDeJuego(R.string.dialog_fin_win, R.string.dialog_fin_win_title);
                             }
                             break;
                         case 3:
-                            if (contadorMinas>=b.getTablero().getAVANZADO()[2]){
+                            if (contadorMinas >= b.getTablero().getAVANZADO()[2]) {
                                 finDeJuego(R.string.dialog_fin_win, R.string.dialog_fin_win_title);
                             }
                             break;
