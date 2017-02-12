@@ -1,10 +1,8 @@
 package com.diaz.inaki.buscaminas;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.graphics.Point;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
@@ -13,8 +11,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.GridLayout;
+import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener {
 
@@ -149,6 +148,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 item.setIcon(R.drawable.mushroom_super_24680);
                 */
+
+
+                Spinner spinner = new Spinner(this, Spinner.MODE_DIALOG);
+                CustomSpinner adapter = new CustomSpinner(this,
+                        new Integer[]{R.drawable.bomb_50px, R.drawable.mushroom_50px, R.drawable.baya_frambu_50px});
+
+                spinner.setAdapter(adapter);
+                final AlertDialog spinnerDialog;
+                AlertDialog.Builder spinnerBuilder = new AlertDialog.Builder(this);
+                spinnerBuilder.setTitle("Select the icon");
+                spinnerDialog = spinnerBuilder.create();
+                spinnerDialog.setView(spinner);
+
+                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        String selectedItem = parent.getItemAtPosition(position).toString();
+                        Boolean pulsado = false;
+                        switch (position) {
+                            case 0:
+                                if (pulsado) {
+                                    
+                                    spinnerDialog.dismiss();
+                                }
+
+                                break;
+                            case 1:
+                                spinnerDialog.dismiss();
+                                break;
+                            case 2:
+                                spinnerDialog.dismiss();
+                                break;
+                        }
+
+                    } // to close the onItemSelected
+
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+
+                spinnerDialog.show();
 
 
                 return true;
