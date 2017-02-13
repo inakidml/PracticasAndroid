@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static int nivel = 1; //nivel 1 principiante 2 amateur 3 avanzado
     private Tablero t;
     private int contadorMinas = 0;
+    private int icono = 1; // 1 bomba, 2 seta, 3 bayas
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,6 +142,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 final AlertDialog levelDialog;
                 levelDialog = builderNivel.create();
                 levelDialog.show();
+                return true;
             case R.id.MnuOpc4:
                 /*
                 Dialog dialogSpinner=new Dialog(this);
@@ -163,20 +165,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        String selectedItem = parent.getItemAtPosition(position).toString();
-                        Boolean pulsado = false;
+                        //String selectedItem = parent.getItemAtPosition(position).toString();
+                        int pulsacion = 0;
+                        System.out.println("Posición" + position);
                         switch (position) {
                             case 0:
-                                if (pulsado) {
-                                    
-                                    spinnerDialog.dismiss();
-                                }
 
+                                pulsacion++;
+                                System.out.println("Pulsacion" + pulsacion);
+                                if (pulsacion>1) {
+                                    icono = 1;
+                                    spinnerDialog.dismiss();
+
+                                }
                                 break;
                             case 1:
+                                icono = 2;
                                 spinnerDialog.dismiss();
                                 break;
                             case 2:
+                                icono = 3;
                                 spinnerDialog.dismiss();
                                 break;
                         }
@@ -514,7 +522,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     finDeJuego(R.string.dialog_fin, R.string.dialog_fin_title);
                     break;
                 case 9:
-                    b.setBackgroundResource(R.drawable.button_pressed_image);
+                    switch (icono) {
+                        case 1:
+                            b.setBackgroundResource(R.drawable.button_pressed_image_bomb);
+                            break;
+                        case 2:
+                            b.setBackgroundResource(R.drawable.button_pressed_image_mushroom);
+                            break;
+                        case 3:
+                            b.setBackgroundResource(R.drawable.button_pressed_image_baya);
+                            break;
+                    }
+
                     contadorMinas++;
                     switch (nivel) {
                         case 1:
