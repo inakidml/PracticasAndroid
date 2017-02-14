@@ -178,6 +178,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     spinnerDialog.dismiss();
 
                                 }
+                                spinnerDialog.dismiss();//OJO, se cieraa
                                 break;
                             case 1:
                                 icono = 2;
