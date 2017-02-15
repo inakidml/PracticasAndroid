@@ -9,6 +9,7 @@ import android.util.TypedValue;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Tablero t;
     private int contadorMinas = 0;
     private int icono = 1; // 1 bomba, 2 seta, 3 bayas
+
+    private Menu refMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Alternativa 1
         getMenuInflater().inflate(R.menu.menu, menu);
-
+        refMenu=menu;
         return true;
     }
 
@@ -154,8 +157,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Spinner spinner = new Spinner(this, Spinner.MODE_DIALOG);
                 CustomSpinner adapter = new CustomSpinner(this,
-                        new Integer[]{R.drawable.bomb_50px, R.drawable.mushroom_50px, R.drawable.baya_frambu_50px});
-
+                        new Integer[]{R.drawable.blanco_50px, R.drawable.bomb_50px, R.drawable.mushroom_50px, R.drawable.baya_frambu_50px});
+                //meto el primer drawable en blanco, ya que siempre esta selccionado el 0 por defecto
                 spinner.setAdapter(adapter);
                 final AlertDialog spinnerDialog;
                 AlertDialog.Builder spinnerBuilder = new AlertDialog.Builder(this);
@@ -163,37 +166,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 spinnerDialog = spinnerBuilder.create();
                 spinnerDialog.setView(spinner);
 
+                //pruebas ontouchlistener
+                /*
+                spinner.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        System.out.println("tocado");
+                        Spinner spinner =(Spinner)v;
+                        isSpinnerTouched = true;
+                        return false;
+                    }
+                });
+                */
                 spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        //String selectedItem = parent.getItemAtPosition(position).toString();
-                        int pulsacion = 0;
-                        System.out.println("Posición" + position);
+                        MenuItem menuOp4 = refMenu.findItem(R.id.MnuOpc4);
                         switch (position) {
                             case 0:
-
-                                pulsacion++;
-                                System.out.println("Pulsacion" + pulsacion);
-                                if (pulsacion>1) {
-                                    icono = 1;
-                                    spinnerDialog.dismiss();
-
-                                }
-                                spinnerDialog.dismiss();//OJO, se cieraa
                                 break;
                             case 1:
-                                icono = 2;
+                                icono = 1;
                                 spinnerDialog.dismiss();
+                                //isSpinnerTouched = false;
+                                menuOp4.setIcon(R.drawable.bomb);
                                 break;
                             case 2:
+                                icono = 2;
+                                spinnerDialog.dismiss();
+                                //isSpinnerTouched = false;
+                                menuOp4.setIcon(R.drawable.mushroom_super_24680);
+                                break;
+                            case 3:
                                 icono = 3;
                                 spinnerDialog.dismiss();
+                                //isSpinnerTouched = false;
+                                menuOp4.setIcon(R.drawable.baya_frambu);
                                 break;
                         }
 
                     } // to close the onItemSelected
 
                     public void onNothingSelected(AdapterView<?> parent) {
-
+                        spinnerDialog.dismiss();
                     }
                 });
 
