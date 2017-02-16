@@ -38,15 +38,6 @@ public class Tablero {
 
     }
 
-    private void mostrarTablero(int[][] tablero) { //mostrar el tablero para pruebas
-        for (int j = 0; j < tablero.length; j++) {
-            for (int k = 0; k < tablero.length; k++) {
-                System.out.print(tablero[j][k]);
-            }
-            System.out.println();
-        }
-    }
-
     public int[] getAVANZADO() {
         return AVANZADO;
     }
@@ -77,6 +68,19 @@ public class Tablero {
 
     public int[][] getArrayEnPosicion() {
         return arrayEnPosicion;
+    }
+
+    public List<Integer> getPosicionMinas() {
+        return posicionMinas;
+    }
+
+    private void mostrarTablero(int[][] tablero) { //mostrar el tablero para pruebas
+        for (int j = 0; j < tablero.length; j++) {
+            for (int k = 0; k < tablero.length; k++) {
+                System.out.print(tablero[j][k]);
+            }
+            System.out.println();
+        }
     }
 
     private void algoritmoRelleno(int[][] tablero) {//rellena el tablero con las minas y adyacentes
@@ -253,10 +257,6 @@ public class Tablero {
             }
         }
 
-    }
-
-    public List<Integer> getPosicionMinas() {
-        return posicionMinas;
     }
 
     private void imprimirPosiciones() { // muestra en que posiciones irán las minas

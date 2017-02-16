@@ -23,19 +23,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public static int tamanio = 8; // tamanio del tablero
-    public static int nivel = 1; //nivel 1 principiante 2 amateur 3 avanzado
-    private Tablero t;
+    public static int nivel = 1; //nivel para primer tablero, 1 principiante 2 amateur 3 avanzado
+    private Tablero t; //un tablero
     private int contadorMinas = 0;
     private int icono = 1; // 1 bomba, 2 seta, 3 bayas
 
-    private Menu refMenu;
+    private Menu refMenu; //referencia para poder cambiar el icono del menú
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         prepararTablero(nivel);
-
     }
 
     public void prepararTablero(int nivel) {
@@ -47,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         anadirBotones();
     }
 
+    //función para mostrar diálogo al acabar el juego
     public void finDeJuego(int mensaje, int titulo) {
         GridLayout g = (GridLayout) findViewById(R.id.grid1);
         int childNum = g.getChildCount();
@@ -77,9 +77,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Inflar Menú
         //http://www.sgoliver.net/blog/menus-en-android-i-conceptos-basicos/
 
-        //Alternativa 1
         getMenuInflater().inflate(R.menu.menu, menu);
-        refMenu=menu;
+        refMenu = menu;
         return true;
     }
 
@@ -111,13 +110,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 prepararTablero(nivel);
 
-
                 return true;
-            case R.id.MnuOpc3:
+            case R.id.MnuOpc3:  //seleccionar nivel
                 System.out.println("Opcion 3 pulsada!");
 
                 // Creating and Building the Dialog
-
                 AlertDialog.Builder builderNivel = new AlertDialog.Builder(this);
                 builderNivel.setTitle("Select The Difficulty Level");
                 CharSequence[] items = {" Principiante ", " Amateur ", " Avanzado "};
@@ -126,18 +123,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         switch (item) {
                             case 0:
-                                //System.out.println("Nivel 1");
                                 prepararTablero(1);
                                 break;
                             case 1:
                                 prepararTablero(2);
-                                //System.out.println("Nivel 2");
                                 break;
                             case 2:
                                 prepararTablero(3);
-                                //System.out.println("Nivel 3");
                                 break;
-
                         }
                         dialog.dismiss();
                     }
@@ -147,39 +140,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 levelDialog.show();
                 return true;
             case R.id.MnuOpc4:
-                /*
-                Dialog dialogSpinner=new Dialog(this);
-                dialogSpinner.setContentView(R.drawable.spinner);
-
-                item.setIcon(R.drawable.mushroom_super_24680);
-                */
-
+                //spinner en alertdialog para seleccionar imagen
 
                 Spinner spinner = new Spinner(this, Spinner.MODE_DIALOG);
                 CustomSpinner adapter = new CustomSpinner(this,
                         new Integer[]{R.drawable.blanco_50px, R.drawable.bomb_50px, R.drawable.mushroom_50px, R.drawable.baya_frambu_50px});
-                //meto el primer drawable en blanco, ya que siempre esta selccionado el 0 por defecto
+                //meto el primer drawable en blanco, ya que siempre esta seleccionado el 0 por defecto
                 spinner.setAdapter(adapter);
                 final AlertDialog spinnerDialog;
                 AlertDialog.Builder spinnerBuilder = new AlertDialog.Builder(this);
                 spinnerBuilder.setTitle("Select the icon");
                 spinnerDialog = spinnerBuilder.create();
                 spinnerDialog.setView(spinner);
-
-                //pruebas ontouchlistener
-                /*
-                spinner.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        System.out.println("tocado");
-                        Spinner spinner =(Spinner)v;
-                        isSpinnerTouched = true;
-                        return false;
-                    }
-                });
-                */
                 spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        //para cambiar el icono del menú
                         MenuItem menuOp4 = refMenu.findItem(R.id.MnuOpc4);
                         switch (position) {
                             case 0:
@@ -187,23 +162,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             case 1:
                                 icono = 1;
                                 spinnerDialog.dismiss();
-                                //isSpinnerTouched = false;
                                 menuOp4.setIcon(R.drawable.bomb);
                                 break;
                             case 2:
                                 icono = 2;
                                 spinnerDialog.dismiss();
-                                //isSpinnerTouched = false;
                                 menuOp4.setIcon(R.drawable.mushroom_super_24680);
                                 break;
                             case 3:
                                 icono = 3;
                                 spinnerDialog.dismiss();
-                                //isSpinnerTouched = false;
                                 menuOp4.setIcon(R.drawable.baya_frambu);
                                 break;
                         }
-
                     } // to close the onItemSelected
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -213,15 +184,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 spinnerDialog.show();
 
-
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-
-    public void seleccionarNivel(int n) {// establece nivel y tamaño tablero
+    public void seleccionarNivel(int n) {// establece nivel y tamaño tablero y actualiza variables
+                                         // es llamada desede preparar tablero
         switch (n) {
             case 1: //principiante
                 nivel = 1;
@@ -256,25 +226,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return result;
     }
 
-    public void anadirBotones() { // añade los botones según el tamanio del tablero
-
-        // Calculate ActionBar height
+    public int getActionBarEight() {//función para saber la altura de la actionBar
         TypedValue tv = new TypedValue();
         int actionBarHeight = 0;
         if (getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
             actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, getResources().getDisplayMetrics());
         }
+        return actionBarHeight;
+    }
 
-        int statusBarHeight;
-        statusBarHeight = getStatusBarHeight();
+    public void anadirBotones() { // añade los botones según el tamanio del tablero
 
+        // Calculate ActionBar height
+        int actionBarHeight = getActionBarEight();
+        int statusBarHeight = getStatusBarHeight();
         if (DEBUG) {
             System.out.println("statusbar eight= " + statusBarHeight);
             System.out.println("actionbar eight= " + actionBarHeight);
         }
-        Point size = tamanioPantalla();
+        Point size = tamanioPantalla(); //tamaño de pantalla
         int width = (size.x / tamanio);
-        int height = ((size.y - (actionBarHeight + statusBarHeight)) / tamanio);           //correción por la barra de menú (+/- 120)
+        int height = ((size.y - (actionBarHeight + statusBarHeight)) / tamanio);//correción por la barra de menú y notificaciones
 
         GridLayout g = (GridLayout) findViewById(R.id.grid1);
 
@@ -314,11 +286,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             int j = b.getTablero().getPosicionEnArray()[id][0];
             int k = b.getTablero().getPosicionEnArray()[id][1];
-            ;
-            int[][] tablero = new int[0][0];
+            int[][] tablero = new int[0][0]; // Array temporal
             switch (nivel) {
                 case 1:
-                    tablero = b.getTablero().getTableroPrincipìante();
+                    tablero = b.getTablero().getTableroPrincipìante(); //asignamos referncia del tablero que estamos usando
                     break;
                 case 2:
                     tablero = b.getTablero().getTableroAmateur();
