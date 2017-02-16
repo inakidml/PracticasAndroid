@@ -8,14 +8,22 @@ import android.widget.Button;
  * Created by inaki on 4/2/17.
  */
 
+//botón sobrecargado con referéncia del tablero y getter de pulsado
+
 public class BotonConTablero extends Button {
     private Tablero tablero;
     private boolean pulsado = false;
 
+    //getter
     public boolean isPulsado() {
         return pulsado;
     }
 
+    public Tablero getTablero() {
+        return tablero;
+    }
+
+    //setter
     public void setPulsado(boolean pulsado) {
 
         this.pulsado = pulsado;
@@ -26,7 +34,4 @@ public class BotonConTablero extends Button {
         this.tablero = tablero;
     }
 
-    public Tablero getTablero() {
-        return tablero;
-    }
 }

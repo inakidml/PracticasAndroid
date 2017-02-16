@@ -37,7 +37,7 @@ public class Tablero {
         rellenarTablero(nivel);
 
     }
-
+    //getters
     public int[] getAVANZADO() {
         return AVANZADO;
     }
@@ -74,7 +74,8 @@ public class Tablero {
         return posicionMinas;
     }
 
-    private void mostrarTablero(int[][] tablero) { //mostrar el tablero para pruebas
+    //Metodos
+    private void mostrarTablero(int[][] tablero) { //mostrar el tablero en terminal - en debug
         for (int j = 0; j < tablero.length; j++) {
             for (int k = 0; k < tablero.length; k++) {
                 System.out.print(tablero[j][k]);
@@ -249,7 +250,7 @@ public class Tablero {
         tableroLineal(tablero);
     }
 
-    private void tableroLineal(int[][] tablero) {
+    private void tableroLineal(int[][] tablero) { // pasa el tablero de array bidimensional a arraylist
         posicionMinas.clear();
         for (int j = 0; j < tablero.length; j++) { // recorremos el array y vamos poniendo las minas
             for (int k = 0; k < tablero.length; k++) {
@@ -259,7 +260,7 @@ public class Tablero {
 
     }
 
-    private void imprimirPosiciones() { // muestra en que posiciones irán las minas
+    private void imprimirPosiciones() { // muestra en que posiciones irán las minas por terminal - debug
 
         for (int posicion : posicionMinas) { // recorremos el array de posiciones para mostrarlo
             System.out.println("posición mina: " + posicion);
@@ -267,7 +268,7 @@ public class Tablero {
         }
     }
 
-    private void contarMinas(int[][] tablero) { //DEBUG
+    private void contarMinas(int[][] tablero) { //contador minas - debug
         int contador = 0;
         for (int j = 0; j < tablero.length; j++) {
             for (int k = 0; k < tablero.length; k++) {

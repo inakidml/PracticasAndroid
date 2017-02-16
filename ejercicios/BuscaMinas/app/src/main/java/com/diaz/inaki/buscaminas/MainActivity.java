@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void seleccionarNivel(int n) {// establece nivel y tamaño tablero y actualiza variables
-                                         // es llamada desede preparar tablero
+                                         // es llamada desde preparar tablero
         switch (n) {
             case 1: //principiante
                 nivel = 1;
@@ -461,7 +461,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (view.getClass().getSimpleName().equals("BotonConTablero")) {
             BotonConTablero b = (BotonConTablero) view;
             if (!b.isPulsado()) { // si el botón no esta pulsado...
-                switch (b.getTablero().getPosicionMinas().get(b.getId())) {
+                switch (b.getTablero().getPosicionMinas().get(b.getId())) { // con el id del botón, cogemos el número de minas o si hay mina desde el arraylist posiciónMinas
                     case 0:
                         descubrirCeros(b.getId());
                         break;
@@ -493,9 +493,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             switch (b.getTablero().getPosicionMinas().get(b.getId())) {
                 case 0:
-                    b.setText("" + b.getTablero().getPosicionMinas().get(b.getId()));
-                    finDeJuego(R.string.dialog_fin, R.string.dialog_fin_title);
-                    break;
                 case 1:
                 case 2:
                 case 3:
@@ -504,11 +501,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case 6:
                 case 7:
                 case 8:
+                    //si no hay mina, fin del juego
                     b.setText("" + b.getTablero().getPosicionMinas().get(b.getId()));
                     finDeJuego(R.string.dialog_fin, R.string.dialog_fin_title);
                     break;
                 case 9:
-                    switch (icono) {
+                    switch (icono) { //si hay mina, cambiamos el background
                         case 1:
                             b.setBackgroundResource(R.drawable.button_pressed_image_bomb);
                             break;
