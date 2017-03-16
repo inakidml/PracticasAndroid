@@ -17,11 +17,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         int notifId = 1; //Identificador de la notificación, para futuras modificaciones.
-    /* PASO 1: Crear la notificación con sus propiedades */
+        /* PASO 1: Crear la notificación con sus propiedades */
         NotificationCompat.Builder constructorNotif = new NotificationCompat.Builder(this);
         constructorNotif.setSmallIcon(R.drawable.ic_stat_name);
         constructorNotif.setContentTitle("Mi notificación");
         constructorNotif.setContentText("Has recibido una notificación!!");
+        constructorNotif.setPriority(Notification.PRIORITY_MAX);
 
         /* PASO 2: Creamos un intent para abrir la actividad cuando se pulse la notificación*/
         Intent resultadoIntent = new Intent(this, MainActivity.class);
@@ -36,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         constructorNotif.setContentIntent(resultadoPendingIntent);
 
           /* PASO 3. Crear y enviar */
-        NotificationManager notificador =
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager notificador = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
         notificador.notify(notifId, constructorNotif.build());
 
         /* PASO 4: [Opcional] Crear notificación con layout expandible */
@@ -49,18 +50,19 @@ public class MainActivity extends AppCompatActivity {
         eventos[1] = "Esto es la segunda línea";
         eventos[2] = "Esto es la tercera línea";
         eventos[3] = "Esto es la cuarta línea";
-        eventos[4] = "Esto es la quita línea";
+        eventos[4] = "Esto es la quinta línea";
         // Mueve eventos dentro del expanded layout
         for (int i = 0; i < eventos.length; i++) {
             inboxStyle.addLine(eventos[i]);
         }
-    /* dar la máxima prioridad y ponerlo en la cima de las notificaciones */
+     /* dar la máxima prioridad y ponerlo en la cima de las notificaciones */
         constructorNotif.setWhen(0);
-        constructorNotif.setPriority(Notification.PRIORITY_MAX);
+        constructorNotif.setPriority(Notification.PRIORITY_LOW);
         // Mueve el expanded layout a la notificación.
         constructorNotif.setStyle(inboxStyle);
-
-        notificador =(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificador.notify(notifId, constructorNotif.build());
+     /* PASO 3. Crear y enviar */
+        int notifIdExpand = 12;
+        notificador = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificador.notify(notifIdExpand, constructorNotif.build());//cambio id para que sea otra notificación
     }
 }
