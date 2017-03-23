@@ -25,12 +25,12 @@ public class MainActivity extends AppCompatActivity {
         String proyeccion[] = {ContactsContract.Contacts._ID,
                 ContactsContract.Contacts.DISPLAY_NAME,
                 ContactsContract.Contacts.HAS_PHONE_NUMBER,
-                ContactsContract.Contacts.PHOTO_ID};
+                ContactsContract.Contacts.PHOTO_URI};
 
         String filtro = ContactsContract.Contacts.DISPLAY_NAME + " like ?";
         String args_filtro[] = {"%"+""+"%"};
 
-        List<String> lista_contactos = new ArrayList<String>();
+        List<Contacto> listaContactos = new ArrayList<Contacto>();
         ContentResolver cr = getContentResolver();
         Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, proyeccion, filtro, args_filtro, null);
         System.out.println(cur.getCount());
@@ -38,8 +38,15 @@ public class MainActivity extends AppCompatActivity {
             while (cur.moveToNext()) {
                 String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
                 String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+                String imageURI = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.PHOTO_URI));
+                //TODO conseguir el numero
                 if (Integer.parseInt(cur.getString(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
-                    lista_contactos.add(name);
+                    Contacto c = new Contacto();
+                    c.setName(name);
+                    c.setAviso("pendiente Aviso");
+                    c.setNumero("Pendiente número");
+                    c.setPhotoURI(imageURI);
+                    listaContactos.add(c);
                 }
             }
 
@@ -49,6 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
         //  http://www.codigojavalibre.com/2015/10/crear-un-listview-con-imagenes-en-Android-Studio.html
         ListView l = (ListView) findViewById(R.id.listaContactos);
-        l.setAdapter(new ArrayAdapter<String>(this, R.layout.fila_lista, lista_contactos));
+        l.setAdapter(new CustomListAdapter(this, listaContactos));
     }
 }

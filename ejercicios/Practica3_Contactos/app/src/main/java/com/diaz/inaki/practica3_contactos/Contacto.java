@@ -8,8 +8,18 @@ public class Contacto {
     private String name;
     private String numero;
     private String aviso;
+    private String photoURI;
+
+
 
     public Contacto() {
+    }
+    public String getPhotoURI() {
+        return photoURI;
+    }
+
+    public void setPhotoURI(String photoURI) {
+        this.photoURI = photoURI;
     }
 
     public String getName() {
