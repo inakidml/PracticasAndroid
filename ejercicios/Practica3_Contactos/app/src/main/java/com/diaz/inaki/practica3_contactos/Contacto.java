@@ -1,13 +1,18 @@
 package com.diaz.inaki.practica3_contactos;
 
+import java.util.Date;
+
 /**
  * Created by 8fdi02 on 23/3/17.
  */
 
 public class Contacto {
+    private int ID;
+    private char tipoNotif;
+    private String mensaje;
+    private String telefono;
+    private String fechaNacimiento;
     private String name;
-    private String numero;
-    private String aviso;
     private String photoURI;
 
 
@@ -30,19 +35,46 @@ public class Contacto {
         this.name = name;
     }
 
-    public String getNumero() {
-        return numero;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
-    public String getAviso() {
-        return aviso;
+    public int getID() {
+        return ID;
     }
 
-    public void setAviso(String aviso) {
-        this.aviso = aviso;
+    public void setID(int ID) {
+        this.ID = ID;
     }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public char getTipoNotif() {
+        return tipoNotif;
+    }
+
+    public void setTipoNotif(char tipoNotif) {
+        this.tipoNotif = tipoNotif;
+    }
+
+
+
 }

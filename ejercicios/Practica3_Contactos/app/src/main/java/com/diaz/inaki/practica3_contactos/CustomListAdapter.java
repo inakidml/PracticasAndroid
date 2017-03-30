@@ -1,7 +1,6 @@
 package com.diaz.inaki.practica3_contactos;
 
 import android.app.Activity;
-import android.content.Context;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,8 +40,8 @@ public class CustomListAdapter extends ArrayAdapter<Contacto> {
         TextView textViewAviso = (TextView) rowView.findViewById(R.id.textoAviso);
 
         textViewNombre.setText(listaContactos.get(posicion).getName());
-        textViewAviso.setText(listaContactos.get(posicion).getAviso());
-        textViewNumero.setText(listaContactos.get(posicion).getNumero());
+        textViewAviso.setText(""+listaContactos.get(posicion).getTipoNotif());
+        textViewNumero.setText(listaContactos.get(posicion).getTelefono());
         imageViewPhoto.setImageURI(Uri.parse(listaContactos.get(posicion).getPhotoURI()));
 
         return rowView;
