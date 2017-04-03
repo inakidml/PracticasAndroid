@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
                         ContactsContract.CommonDataKinds.Event.MIMETYPE,
                 };
 
-                String where = Event.TYPE + "=" + Event.TYPE_BIRTHDAY +
-                        " and " + Event.MIMETYPE + " = '" + Event.CONTENT_ITEM_TYPE + "' and "                  + ContactsContract.Data.CONTACT_ID + " = " + contactId;
+                String where = ContactsContract.CommonDataKinds.Event.TYPE + "=" + ContactsContract.CommonDataKinds.Event.TYPE_BIRTHDAY +
+                        " and " + ContactsContract.CommonDataKinds.Event.MIMETYPE + " = '" + ContactsContract.CommonDataKinds.Event.CONTENT_ITEM_TYPE + "' and " + ContactsContract.Data.CONTACT_ID + " = ";// + contactId;
 
                 String[] selectionArgs = null;
                 String sortOrder = ContactsContract.Contacts.DISPLAY_NAME;
