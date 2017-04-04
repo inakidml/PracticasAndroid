@@ -23,7 +23,6 @@ public class CustomListAdapter extends ArrayAdapter<Contacto> {
     public CustomListAdapter(Activity context, List<Contacto> contactos) {
 
         super(context, R.layout.fila_lista, contactos);
-        // TODO Auto-generated constructor stub
         this.context = context;
         this.listaContactos = contactos;
 
