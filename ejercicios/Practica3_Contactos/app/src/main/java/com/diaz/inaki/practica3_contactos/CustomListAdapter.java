@@ -39,7 +39,7 @@ public class CustomListAdapter extends ArrayAdapter<Contacto> {
         TextView textViewAviso = (TextView) rowView.findViewById(R.id.textoAviso);
 
         textViewNombre.setText(listaContactos.get(posicion).getName());
-        textViewAviso.setText(""+listaContactos.get(posicion).getTipoNotif());
+        textViewAviso.setText(""+listaContactos.get(posicion).getFechaNacimiento());//getTipoNotif());
         textViewNumero.setText(listaContactos.get(posicion).getTelefono());
         imageViewPhoto.setImageURI(Uri.parse(listaContactos.get(posicion).getPhotoURI()));
 
