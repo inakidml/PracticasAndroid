@@ -7,7 +7,7 @@ import java.util.Date;
  */
 
 public class Contacto {
-    private int ID;
+    private String ID;
     private char tipoNotif;
     private String mensaje;
     private String telefono;
@@ -19,6 +19,41 @@ public class Contacto {
 
     public Contacto() {
     }
+
+
+
+    //equals y HashCode
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Contacto contacto = (Contacto) o;
+
+        if (!ID.equals(contacto.ID)) return false;
+        if (telefono != null ? !telefono.equals(contacto.telefono) : contacto.telefono != null)
+            return false;
+        if (fechaNacimiento != null ? !fechaNacimiento.equals(contacto.fechaNacimiento) : contacto.fechaNacimiento != null)
+            return false;
+        if (name != null ? !name.equals(contacto.name) : contacto.name != null) return false;
+        return photoURI != null ? photoURI.equals(contacto.photoURI) : contacto.photoURI == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = ID.hashCode();
+        result = 31 * result + (telefono != null ? telefono.hashCode() : 0);
+        result = 31 * result + (fechaNacimiento != null ? fechaNacimiento.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (photoURI != null ? photoURI.hashCode() : 0);
+        return result;
+    }
+
+
+    //Getters y Setters
+
     public String getPhotoURI() {
         return photoURI;
     }
@@ -43,11 +78,11 @@ public class Contacto {
         this.telefono = telefono;
     }
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
