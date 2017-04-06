@@ -17,7 +17,7 @@ public class Modelo extends AppCompatActivity {
     private SQLiteDatabase db;
     private Context c;
     private List<Contacto> listaContactos;
-    private List<String> listaIdsBd; //lista para saber cuales estan en la BD
+    private List<String> listaIdsBd; //lista para saber cuales estan en la BD TODO cambiarlo por hashmap conla posición en el array listacontactos
 
 
     public Modelo(Context c) {
@@ -110,7 +110,10 @@ public class Modelo extends AppCompatActivity {
 
     //TODO modificar contacto DB
 
-    public void modificarContactoDB() {
+    public void modificarContactoDB(Contacto c) {
+        abrirDb();
+        db.execSQL("UPDATE misCumples SET TipoNotif ='"+c.getTipoNotif()+"', Mensaje ='"+c.getMensaje()+"', Telefono = '"+c.getTelefono()+"', FechaNacimiento = '"+c.getFechaNacimiento()+"', Nombre = '"+c.getName()+"', URIPhoto = '"+c.getPhotoURI()+"'");
+        cerrarDB();
 
     }
 

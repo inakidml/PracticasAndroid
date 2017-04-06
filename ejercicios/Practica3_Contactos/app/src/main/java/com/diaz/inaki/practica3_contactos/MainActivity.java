@@ -63,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
                 //TODO comparar contacto con equals para ver si ha habido modificaciones en el del tel, y si lo ha habido update
                     if(!mod.getListaIdsBd().contains(c.getID())){//si no contiene este ID, lo añadimos a la BD
                         mod.aniadirContactoDb(c);
+                    }else{
+                        //TODO buscar en el hashmap la posición en el arraylist y comparar el objeto con equals para ver si ha cambiado algo
+                        //si ha cambiado update 
                     }
 
                 }
