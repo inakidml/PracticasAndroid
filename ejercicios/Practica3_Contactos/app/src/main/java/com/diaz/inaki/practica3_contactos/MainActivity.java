@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mod = new Modelo(this);
         System.out.println("onCreate main");
+        //mod.OJOborrarDB();
         rellenarListaContactosDesdeTel();
 
         Context context = this;
@@ -60,23 +61,23 @@ public class MainActivity extends AppCompatActivity {
                     c.setPhotoURI(imageURI);
                     c.setFechaNacimiento(bDay);
                     c.setMensaje("Vacío");
-                //TODO comparar contacto con equals para ver si ha habido modificaciones en el del tel, y si lo ha habido update
-                    if(!mod.getListaIdsBd().contains(c.getID())){//si no contiene este ID, lo añadimos a la BD
-                        mod.aniadirContactoDb(c);
-                    }else{
-                        //TODO buscar en el hashmap la posición en el arraylist y comparar el objeto con equals para ver si ha cambiado algo
-                        //si ha cambiado update 
-                    }
 
+                    if (mod.getListaIdsBd().containsKey(c.getID())) {
+                        Contacto cGuardado = mod.getListaContactos().get(mod.getListaIdsBd().get(c.getID()));
+                        if (!cGuardado.equals(c)) {
+                            //Si el contacto se ha modificado, lo cambiamos
+                            mod.modificarContactoDB(c, cGuardado);
+                        }
+                    } else {
+                        mod.aniadirContactoDb(c);
+                    }
                 }
             }
         }
         cur.close();//Cerramos el cursor
 
         //Mandamos el adaptador a la lista de contactos
-
         //  http://www.codigojavalibre.com/2015/10/crear-un-listview-con-imagenes-en-Android-Studio.html
-
         ListView l = (ListView) findViewById(R.id.listaContactos);
         l.setAdapter(new CustomListAdapter(this, mod.getListaContactos()));
     }

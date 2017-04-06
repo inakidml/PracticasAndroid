@@ -6,7 +6,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -17,13 +19,13 @@ public class Modelo extends AppCompatActivity {
     private SQLiteDatabase db;
     private Context c;
     private List<Contacto> listaContactos;
-    private List<String> listaIdsBd; //lista para saber cuales estan en la BD TODO cambiarlo por hashmap conla posición en el array listacontactos
+    private Map<String, Integer> listaIdsBd; //lista para saber cuales estan en la BD
 
 
     public Modelo(Context c) {
         this.c = c;
         listaContactos = new ArrayList<Contacto>();
-        listaIdsBd = new ArrayList<>();
+        listaIdsBd = new HashMap<>();
         crearTabla();
         cargarBD();
         listarDb();
@@ -52,8 +54,9 @@ public class Modelo extends AppCompatActivity {
     public void aniadirContactoDb(Contacto c) {
         abrirDb();
         db.execSQL("INSERT INTO misCumples VALUES('" + c.getID() + "', '" + c.getTipoNotif() + "', '" + c.getMensaje() + "','" + c.getTelefono() + "','" + c.getFechaNacimiento() + "','" + c.getName() + "','" + c.getPhotoURI() + "')");
-        listaIdsBd.add(c.getID());
+
         listaContactos.add(c);
+        listaIdsBd.put(c.getID(),  listaContactos.indexOf(c));
         cerrarDB();
     }
 
@@ -66,7 +69,7 @@ public class Modelo extends AppCompatActivity {
         else {
             listaIdsBd.clear();
             while (c.moveToNext()) {
-                listaIdsBd.add(c.getString(0));
+
                 Contacto contactoTemp = new Contacto();
 
                 contactoTemp.setID(c.getString(0));
@@ -78,6 +81,7 @@ public class Modelo extends AppCompatActivity {
                 contactoTemp.setPhotoURI(c.getString(6));
 
                 listaContactos.add(contactoTemp);
+                getListaIdsBd().put(c.getString(0), listaContactos.indexOf(contactoTemp));
             }
         }
         cerrarDB();
@@ -107,14 +111,14 @@ public class Modelo extends AppCompatActivity {
         cerrarDB();
     }
 
-
-    //TODO modificar contacto DB
-
-    public void modificarContactoDB(Contacto c) {
+    public void modificarContactoDB(Contacto c, Contacto cGuardado) {
         abrirDb();
-        db.execSQL("UPDATE misCumples SET TipoNotif ='"+c.getTipoNotif()+"', Mensaje ='"+c.getMensaje()+"', Telefono = '"+c.getTelefono()+"', FechaNacimiento = '"+c.getFechaNacimiento()+"', Nombre = '"+c.getName()+"', URIPhoto = '"+c.getPhotoURI()+"'");
+        String id = c.getID();
+        db.execSQL("UPDATE misCumples SET TipoNotif ='"+c.getTipoNotif()+"', Mensaje ='"+c.getMensaje()+"', Telefono = '"+c.getTelefono()+"', FechaNacimiento = '"+c.getFechaNacimiento()+"', Nombre = '"+c.getName()+"', URIPhoto = '"+c.getPhotoURI()+"' WHERE ID = '"+id+"'");
         cerrarDB();
-
+        //sustituir en el arraylist
+        System.out.println("index del arraylist = "+ getListaIdsBd().get(cGuardado.getID()));
+        getListaContactos().set(getListaIdsBd().get(cGuardado.getID()), c);
     }
 
 
@@ -125,8 +129,7 @@ public class Modelo extends AppCompatActivity {
         return listaContactos;
     }
 
-    public List<String> getListaIdsBd() {
+    public Map<String, Integer> getListaIdsBd() {
         return listaIdsBd;
     }
-
 }
