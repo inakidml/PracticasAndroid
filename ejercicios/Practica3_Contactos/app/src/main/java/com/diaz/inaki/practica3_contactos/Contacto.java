@@ -1,12 +1,13 @@
 package com.diaz.inaki.practica3_contactos;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by 8fdi02 on 23/3/17.
  */
 
-public class Contacto {
+public class Contacto implements Serializable{
     private String ID;
     private char tipoNotif;
     private String mensaje;

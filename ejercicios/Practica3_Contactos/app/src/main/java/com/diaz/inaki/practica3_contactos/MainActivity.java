@@ -2,16 +2,20 @@ package com.diaz.inaki.practica3_contactos;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 
 public class MainActivity extends AppCompatActivity {
     private Modelo mod;
+    public static final int INTENTPARAVERCONTACTO = 1;
 
 
     @Override
@@ -80,6 +84,16 @@ public class MainActivity extends AppCompatActivity {
         //  http://www.codigojavalibre.com/2015/10/crear-un-listview-con-imagenes-en-Android-Studio.html
         ListView l = (ListView) findViewById(R.id.listaContactos);
         l.setAdapter(new CustomListAdapter(this, mod.getListaContactos()));
+        //añadimos onitemclicklistener al listview
+        l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(MainActivity.this, VerContactoActivity.class);
+                Contacto c = mod.getListaContactos().get(i);
+                intent.putExtra("Contacto", c);
+                startActivityForResult(intent, INTENTPARAVERCONTACTO);
+            }
+        });
     }
 
     private String conseguirMovil(String id) {
