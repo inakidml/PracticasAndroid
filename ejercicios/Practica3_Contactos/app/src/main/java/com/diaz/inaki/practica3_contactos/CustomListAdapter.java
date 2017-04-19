@@ -33,7 +33,7 @@ public class CustomListAdapter extends ArrayAdapter<Contacto> {
         LayoutInflater inflater = context.getLayoutInflater();
         View rowView = inflater.inflate(R.layout.fila_lista, null, true);
 
-        ImageView imageViewPhoto = (ImageView) rowView.findViewById(R.id.photo);
+        ImageView imageViewPhoto = (ImageView) rowView.findViewById(R.id.photoVerContacto);
         TextView textViewNombre = (TextView) rowView.findViewById(R.id.textoNombre);
         TextView textViewNumero = (TextView) rowView.findViewById(R.id.textoNumero);
         TextView textViewAviso = (TextView) rowView.findViewById(R.id.textoAviso);
