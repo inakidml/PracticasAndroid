@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -117,7 +118,7 @@ public class Modelo extends AppCompatActivity {
         db.execSQL("UPDATE misCumples SET TipoNotif ='"+c.getTipoNotif()+"', Mensaje ='"+c.getMensaje()+"', Telefono = '"+c.getTelefono()+"', FechaNacimiento = '"+c.getFechaNacimiento()+"', Nombre = '"+c.getName()+"', URIPhoto = '"+c.getPhotoURI()+"' WHERE ID = '"+id+"'");
         cerrarDB();
         //sustituir en el arraylist
-        System.out.println("index del arraylist = "+ getListaIdsBd().get(cGuardado.getID()));
+        //System.out.println("index del arraylist = "+ getListaIdsBd().get(cGuardado.getID()));
         getListaContactos().set(getListaIdsBd().get(cGuardado.getID()), c);
     }
 

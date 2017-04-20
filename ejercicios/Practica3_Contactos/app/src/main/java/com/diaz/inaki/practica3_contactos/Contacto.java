@@ -52,8 +52,19 @@ public class Contacto implements Serializable{
         return result;
     }
 
-
-    //Getters y Setters
+    @Override
+    public String toString() {
+        return "Contacto{" +
+                "ID='" + ID + '\'' +
+                ", tipoNotif=" + tipoNotif +
+                ", mensaje='" + mensaje + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", fechaNacimiento='" + fechaNacimiento + '\'' +
+                ", name='" + name + '\'' +
+                ", photoURI='" + photoURI + '\'' +
+                '}';
+    }
+//Getters y Setters
 
     public String getPhotoURI() {
         return photoURI;

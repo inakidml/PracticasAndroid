@@ -14,6 +14,7 @@ import android.widget.ListView;
 
 
 public class MainActivity extends AppCompatActivity {
+
     private Modelo mod;
     public static final int INTENTPARAVERCONTACTO = 1;
 
@@ -94,6 +95,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, INTENTPARAVERCONTACTO);
             }
         });
+    }
+
+    //recibe los resultados
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data)
+    {
+
+        if (requestCode == INTENTPARAVERCONTACTO) {
+            if (resultCode == RESULT_OK) {
+                Contacto contactoModificado = (Contacto)data.getSerializableExtra("Contacto");
+               // System.out.println(contactoModificado);
+               // System.out.println("intent de vuelta OK");
+            }
+        }
     }
 
     private String conseguirMovil(String id) {
