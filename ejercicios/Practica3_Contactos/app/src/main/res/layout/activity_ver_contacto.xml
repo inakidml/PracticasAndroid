@@ -21,45 +21,40 @@
 
     <TextView
         android:id="@+id/TextView"
-        android:layout_width="80dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Nombre:"
         android:textSize="12sp"
-        android:layout_marginStart="11dp"
         android:layout_alignBaseline="@+id/textoNombreVerContacto"
         android:layout_alignBottom="@+id/textoNombreVerContacto"
         android:layout_toEndOf="@+id/photoVerContacto" />
 
     <TextView
         android:id="@+id/textoNombreVerContacto"
-        android:layout_width="140dp"
+        android:layout_width="120dp"
         android:layout_height="40dp"
         android:text="TextView"
         tools:textSize="22sp"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/TextView"
-        android:layout_marginTop="11dp" />
+        android:layout_toEndOf="@+id/TextView" />
 
     <Button
         android:id="@+id/botonDetalles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=",,,"
-        android:layout_alignBaseline="@+id/textoNombreVerContacto"
-        android:layout_alignBottom="@+id/textoNombreVerContacto"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/textoNombreVerContacto" />
+        android:text="..."
+        android:layout_alignTop="@+id/textoNombreVerContacto"
+        android:layout_alignParentEnd="true" />
 
     <CheckBox
         android:id="@+id/checkBoxVerContacto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="¿Enviar SMS?"
-        android:layout_below="@+id/TextView"
-        android:layout_alignStart="@+id/textoNombreVerContacto"
-        android:layout_marginTop="12dp" />
+        android:layout_below="@+id/textoNombreVerContacto"
+        android:layout_alignStart="@+id/fechaNacimientoVerContacto" />
 
     <TextView
         android:id="@+id/TextView2"
@@ -102,8 +97,8 @@
         android:textSize="18sp"
         android:layout_alignBaseline="@+id/TextView3"
         android:layout_alignBottom="@+id/TextView3"
-        android:layout_alignStart="@+id/botonGuardar"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/TextView3" />
 
     <TextView
         android:id="@+id/TextView4"
