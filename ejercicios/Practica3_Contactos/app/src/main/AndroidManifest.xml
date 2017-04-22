@@ -20,6 +20,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".VerContactoActivity"></activity>
+        <receiver android:name=".Alarma">
+            <intent-filter> <action
+                android:name="com.miapp.Alarma"> </action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

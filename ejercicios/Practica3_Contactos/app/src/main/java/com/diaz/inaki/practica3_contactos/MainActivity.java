@@ -1,5 +1,7 @@
 package com.diaz.inaki.practica3_contactos;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +13,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.content.BroadcastReceiver;
+
+import java.util.Calendar;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         mod = new Modelo(this);
         System.out.println("onCreate main");
         //mod.OJOborrarDB();
+        setAlarma(18,05);
         rellenarListaContactosDesdeTel();
 
         Context context = this;
@@ -41,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 ContactsContract.Contacts.HAS_PHONE_NUMBER,
                 ContactsContract.Contacts.PHOTO_URI};
 
-        String filtro = ContactsContract.Contacts.DISPLAY_NAME + " like ?";
+        String filtro = ContactsContract.Contacts.DISPLAY_NAME + " like ?";//las interrogaciones se sustituyen por los args_filtro
         String args_filtro[] = {"%" + "" + "%"};
 
         ContentResolver cr = getContentResolver();
@@ -184,4 +190,22 @@ public class MainActivity extends AppCompatActivity {
 
         return bDay;
     }
+
+    public void setAlarma(int hora, int minutos) {
+
+        AlarmManager alarmMgr;
+        PendingIntent alarmIntent;
+       /*configurar calendario*/
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, hora);
+        calendar.set(Calendar.MINUTE, minutos);
+       /*crear la alarma*/
+        Intent intent = new Intent(this, Alarma.class);
+        alarmIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+        alarmMgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, alarmIntent);
+    }
 }
+
+
