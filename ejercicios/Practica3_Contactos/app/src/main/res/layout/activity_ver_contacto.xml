@@ -14,9 +14,10 @@
         android:id="@+id/photoVerContacto"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:padding="5dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:contentDescription="Foto del Contacto"
+        android:padding="5dp" />
 
     <TextView
         android:id="@+id/TextView"
@@ -115,16 +116,15 @@
         android:layout_below="@+id/fechaNacimientoVerContacto"
         android:layout_alignParentStart="true" />
 
-    <TextView
+    <EditText
         android:id="@+id/mensajeVerContacto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLines="4"
-        android:lines="4"
-        android:text="TextView"
-        android:layout_below="@+id/fechaNacimientoVerContacto"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp" />
+        android:layout_below="@+id/fechaNacimientoVerContacto"
+        android:layout_marginTop="25dp"
+        android:lines="4"
+        android:maxLines="4" />
 
     <Button
         android:id="@+id/botonGuardar"

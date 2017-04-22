@@ -42,6 +42,7 @@ public class Contacto implements Serializable{
 
     }
 
+
     @Override
     public int hashCode() {
         int result = ID.hashCode();
@@ -120,6 +121,16 @@ public class Contacto implements Serializable{
 
     public void setTipoNotif(char tipoNotif) {
         this.tipoNotif = tipoNotif;
+    }
+
+    public void setTipoNotifBoolean(Boolean checked) {
+        if(checked){
+            this.tipoNotif = 'y';
+        }else{
+            this.tipoNotif = 'n';
+        }
+
+
     }
 
 

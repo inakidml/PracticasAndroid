@@ -16,7 +16,8 @@ import android.widget.ListView;
 public class MainActivity extends AppCompatActivity {
 
     private Modelo mod;
-    public static final int INTENTPARAVERCONTACTO = 1;
+    private static final int INTENTPARAVERCONTACTO = 1;
+    private ListView l;
 
 
     @Override
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     Contacto c = new Contacto();
                     c.setID(id);
                     c.setName(name);
-                    c.setTipoNotif('z');
+                    c.setTipoNotifBoolean(false);
                     c.setTelefono(telefono);
                     c.setPhotoURI(imageURI);
                     c.setFechaNacimiento(bDay);
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Mandamos el adaptador a la lista de contactos
         //  http://www.codigojavalibre.com/2015/10/crear-un-listview-con-imagenes-en-Android-Studio.html
-        ListView l = (ListView) findViewById(R.id.listaContactos);
+        l = (ListView) findViewById(R.id.listaContactos);
         l.setAdapter(new CustomListAdapter(this, mod.getListaContactos()));
         //añadimos onitemclicklistener al listview
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -104,8 +105,12 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == INTENTPARAVERCONTACTO) {
             if (resultCode == RESULT_OK) {
-                Contacto contactoModificado = (Contacto)data.getSerializableExtra("Contacto");
-               // System.out.println(contactoModificado);
+                //TODO si se ha modificado
+                Contacto contactoOriginal = (Contacto)data.getSerializableExtra("Contacto Original");
+                Contacto contactoModificado = (Contacto)data.getSerializableExtra("Contacto Modificado");
+                mod.modificarContactoDB(contactoModificado, contactoOriginal);
+                l.setAdapter(new CustomListAdapter(this, mod.getListaContactos()));
+
                // System.out.println("intent de vuelta OK");
             }
         }

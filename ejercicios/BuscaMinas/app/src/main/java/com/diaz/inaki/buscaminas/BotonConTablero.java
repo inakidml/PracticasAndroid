@@ -10,7 +10,7 @@ import android.widget.Button;
 
 //botón sobrecargado con referéncia del tablero y getter de pulsado
 
-public class BotonConTablero extends Button {
+public class BotonConTablero extends android.support.v7.widget.AppCompatButton {
     private Tablero tablero;
     private boolean pulsado = false;
 
