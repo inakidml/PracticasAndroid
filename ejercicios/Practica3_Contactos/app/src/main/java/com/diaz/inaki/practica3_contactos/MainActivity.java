@@ -100,18 +100,17 @@ public class MainActivity extends AppCompatActivity {
 
     //recibe los resultados
     protected void onActivityResult(int requestCode, int resultCode,
-                                    Intent data)
-    {
+                                    Intent data) {
 
         if (requestCode == INTENTPARAVERCONTACTO) {
             if (resultCode == RESULT_OK) {
                 //TODO si se ha modificado
-                Contacto contactoOriginal = (Contacto)data.getSerializableExtra("Contacto Original");
-                Contacto contactoModificado = (Contacto)data.getSerializableExtra("Contacto Modificado");
+                Contacto contactoOriginal = (Contacto) data.getSerializableExtra("Contacto Original");
+                Contacto contactoModificado = (Contacto) data.getSerializableExtra("Contacto Modificado");
                 mod.modificarContactoDB(contactoModificado, contactoOriginal);
                 l.setAdapter(new CustomListAdapter(this, mod.getListaContactos()));
 
-               // System.out.println("intent de vuelta OK");
+                // System.out.println("intent de vuelta OK");
             }
         }
     }
