@@ -1,12 +1,10 @@
 package com.diaz.inaki.practica3_contactos;
 
 import android.app.AlarmManager;
-import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -18,8 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.content.BroadcastReceiver;
-import android.widget.Spinner;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
@@ -31,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int INTENTPARAVERCONTACTO = 1;
     private ListView l;
     private Menu refMenu; //referencia para poder cambiar el icono del menú
+    private AlarmManager alarmMgr;
+    private PendingIntent alarmIntent; //para el broadcast de la alarma
     private int horaAlarma = 20;
     private int minutoAlarma = 00;
 
@@ -41,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Context context = this;
         mod = new Modelo(this);
+        Alarma.mod = mod;
         System.out.println("onCreate main");
         //mod.OJOborrarDB();
-        setAlarma(horaAlarma,minutoAlarma);
+        setAlarma(horaAlarma, minutoAlarma);
         rellenarListaContactosDesdeTel();
-
 
 
     }
@@ -69,114 +67,18 @@ public class MainActivity extends AppCompatActivity {
                 int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 int minute = mcurrentTime.get(Calendar.MINUTE);
                 TimePickerDialog mTimePicker;
-                mTimePicker = new TimePickerDialog(this, 0,new TimePickerDialog.OnTimeSetListener() {
+                mTimePicker = new TimePickerDialog(this, 0, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         horaAlarma = selectedHour;
-                        minutoAlarma =selectedMinute;
-                        setAlarma(horaAlarma,minutoAlarma);
+                        minutoAlarma = selectedMinute;
+                        setAlarma(horaAlarma, minutoAlarma);
 
                     }
-                }, hour, minute, true);//Yes 24 hour time
-                mTimePicker.setTitle("Select Time");
+                }, hour, minute, true);
+                mTimePicker.setTitle("Seleccionar hora notificación");
                 mTimePicker.show();
-
-
-
-
-/*                // https://developer.android.com/guide/topics/ui/dialogs.html?hl=es
-
-                // 1. Instantiate an AlertDialog.Builder with its constructor
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                // 2. Chain together various setter methods to set the dialog characteristics
-                builder.setMessage(R.string.dialog_message);
-                builder.setTitle(R.string.dialog_title);
-                //Añadir Botón OK
-                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User clicked OK button
-                        dialog.dismiss();
-                    }
-                });
-                // 3. Get the AlertDialog from create()
-                AlertDialog dialog = builder.create();
-                dialog.show();
                 return true;
-
-            case R.id.MnuOpc3:  //seleccionar nivel
-                System.out.println("Opcion 3 pulsada!");
-
-                // Creating and Building the Dialog
-                AlertDialog.Builder builderNivel = new AlertDialog.Builder(this);
-                builderNivel.setTitle("Select The Difficulty Level");
-                CharSequence[] items = {" Principiante ", " Amateur ", " Avanzado "};
-                builderNivel.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int item) {
-
-                        switch (item) {
-                            case 0:
-                                prepararTablero(1);
-                                break;
-                            case 1:
-                                prepararTablero(2);
-                                break;
-                            case 2:
-                                prepararTablero(3);
-                                break;
-                        }
-                        dialog.dismiss();
-                    }
-                });
-                final AlertDialog levelDialog;
-                levelDialog = builderNivel.create();
-                levelDialog.show();
-                return true;
-            case R.id.MnuOpc4:
-                //spinner en alertdialog para seleccionar imagen
-
-                Spinner spinner = new Spinner(this, Spinner.MODE_DIALOG);
-                CustomSpinner adapter = new CustomSpinner(this,
-                        new Integer[]{R.drawable.blanco_50px, R.drawable.bomb_50px, R.drawable.mushroom_50px, R.drawable.baya_frambu_50px});
-                //meto el primer drawable en blanco, ya que siempre esta seleccionado el 0 por defecto
-                spinner.setAdapter(adapter);
-                final AlertDialog spinnerDialog;
-                AlertDialog.Builder spinnerBuilder = new AlertDialog.Builder(this);
-                spinnerBuilder.setTitle("Select the icon");
-                spinnerDialog = spinnerBuilder.create();
-                spinnerDialog.setView(spinner);
-                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        //para cambiar el icono del menú
-                        MenuItem menuOp4 = refMenu.findItem(R.id.MnuOpc4);
-                        switch (position) {
-                            case 0:
-                                break;
-                            case 1:
-                                icono = 1;
-                                spinnerDialog.dismiss();
-                                menuOp4.setIcon(R.drawable.bomb);
-                                break;
-                            case 2:
-                                icono = 2;
-                                spinnerDialog.dismiss();
-                                menuOp4.setIcon(R.drawable.mushroom_super_24680);
-                                break;
-                            case 3:
-                                icono = 3;
-                                spinnerDialog.dismiss();
-                                menuOp4.setIcon(R.drawable.baya_frambu);
-                                break;
-                        }
-                    } // to close the onItemSelected
-
-                    public void onNothingSelected(AdapterView<?> parent) {
-                        spinnerDialog.dismiss();
-                    }
-                });
-
-                spinnerDialog.show();
-
-                return true;*/
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -224,8 +126,9 @@ public class MainActivity extends AppCompatActivity {
                             mod.modificarContactoDB(c, cGuardado);
                         }
                     } else {
-                        mod.aniadirContactoDb(c);
+                        mod.aniadirContactoDB(c);
                     }
+                    //TODO comprobar que no se ha borrado algun contacto del teléfono, si es que sí, borrarlo
                 }
             }
         }
@@ -247,19 +150,21 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //recibe los resultados
-    protected void onActivityResult(int requestCode, int resultCode,
-                                    Intent data) {
+    //recibe los resultados de la actividad ver detalle
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (requestCode == INTENTPARAVERCONTACTO) {
+
+
             if (resultCode == RESULT_OK) {
-                //TODO si se ha modificado
                 Contacto contactoOriginal = (Contacto) data.getSerializableExtra("Contacto Original");
                 Contacto contactoModificado = (Contacto) data.getSerializableExtra("Contacto Modificado");
                 mod.modificarContactoDB(contactoModificado, contactoOriginal);
                 l.setAdapter(new CustomListAdapter(this, mod.getListaContactos()));
 
                 // System.out.println("intent de vuelta OK");
+            } else {
+                //TODO si se da a la flecha para atrás, comprobar que no se ha modificado en el teléfono
             }
         }
     }
@@ -335,20 +240,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setAlarma(int hora, int minutos) {
+        //System.out.println("Activar alarma a las : " +  hora + minutos);
+        //System.out.println(alarmMgr);
 
-        AlarmManager alarmMgr;
-        PendingIntent alarmIntent;
+        if (alarmMgr == null) {
+
        /*configurar calendario*/
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, hora);
-        calendar.set(Calendar.MINUTE, minutos);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(System.currentTimeMillis());
+            calendar.set(Calendar.HOUR_OF_DAY, hora);
+            calendar.set(Calendar.MINUTE, minutos);
        /*crear la alarma*/
-        Intent intent = new Intent(this, Alarma.class);
-        alarmIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
-        alarmMgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-        alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, alarmIntent);
-        System.out.println("Alarma configurada a las " + hora + ":" + minutos);
+            Intent intent = new Intent(this, Alarma.class);
+            alarmIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+            alarmMgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+            alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, alarmIntent);
+            //System.out.println("Alarma configurada a las " + hora + ":" + minutos);
+        } else {
+            /*configurar calendario*/
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(System.currentTimeMillis());
+            calendar.set(Calendar.HOUR_OF_DAY, hora);
+            calendar.set(Calendar.MINUTE, minutos);
+            alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, alarmIntent);
+            //System.out.println("Alarma cambiada" + hora + minutos);
+
+        }
     }
 }
 
