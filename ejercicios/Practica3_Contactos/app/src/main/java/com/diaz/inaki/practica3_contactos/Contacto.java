@@ -22,7 +22,6 @@ public class Contacto implements Serializable{
     }
 
 
-
     //equals y HashCode
 
     @Override
@@ -41,7 +40,6 @@ public class Contacto implements Serializable{
         return photoURI != null ? photoURI.equals(contacto.photoURI) : contacto.photoURI == null;
 
     }
-
 
     @Override
     public int hashCode() {
@@ -65,7 +63,8 @@ public class Contacto implements Serializable{
                 ", photoURI='" + photoURI + '\'' +
                 '}';
     }
-//Getters y Setters
+
+    //Getters y Setters
 
     public String getPhotoURI() {
         return photoURI;

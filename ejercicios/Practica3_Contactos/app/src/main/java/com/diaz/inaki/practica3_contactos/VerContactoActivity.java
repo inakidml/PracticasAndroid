@@ -75,6 +75,32 @@ public class VerContactoActivity extends AppCompatActivity implements View.OnCli
 
     }
 
+
+    private void rellenarFicha(){
+        ImageView photo = (ImageView) findViewById(R.id.photoVerContacto);
+        TextView nombre = (TextView) findViewById(R.id.textoNombreVerContacto);
+        TextView telefono = (TextView) findViewById(R.id.textoTelefonoVerContacto);
+        aviso = (CheckBox) findViewById(R.id.checkBoxVerContacto);
+        TextView fechaNacimiento = (TextView) findViewById(R.id.fechaNacimientoVerContacto);
+        mensaje = (EditText) findViewById(R.id.mensajeVerContacto);
+
+
+        photo.setImageURI(Uri.parse(c.getPhotoURI()));
+        nombre.setText(c.getName());
+        telefono.setText(c.getTelefono());
+        fechaNacimiento.setText(c.getFechaNacimiento());
+        mensaje.setHint(c.getMensaje());
+        if (c.getTipoNotif() == 'y') {
+            aviso.setChecked(true);
+        }
+    }
+
+    //si no hay texto escrito devuelve el hint (placeholder)
+    private String leerMensaje(EditText mensaje) {
+        return (mensaje.getText().toString().matches("") ? mensaje.getHint().toString() : mensaje.getText().toString());
+
+    }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //https://developer.android.com/training/basics/intents/result.html
         // Check which request we're responding to
@@ -206,29 +232,8 @@ public class VerContactoActivity extends AppCompatActivity implements View.OnCli
         return bDay;
     }
 
-    private void rellenarFicha(){
-        ImageView photo = (ImageView) findViewById(R.id.photoVerContacto);
-        TextView nombre = (TextView) findViewById(R.id.textoNombreVerContacto);
-        TextView telefono = (TextView) findViewById(R.id.textoTelefonoVerContacto);
-        aviso = (CheckBox) findViewById(R.id.checkBoxVerContacto);
-        TextView fechaNacimiento = (TextView) findViewById(R.id.fechaNacimientoVerContacto);
-        mensaje = (EditText) findViewById(R.id.mensajeVerContacto);
 
-
-        photo.setImageURI(Uri.parse(c.getPhotoURI()));
-        nombre.setText(c.getName());
-        telefono.setText(c.getTelefono());
-        fechaNacimiento.setText(c.getFechaNacimiento());
-        mensaje.setHint(c.getMensaje());
-        if (c.getTipoNotif() == 'y') {
-            aviso.setChecked(true);
-        }
-    }
-
-    //si no hay texto escrito devuelve el hint(placeholder)
-    private String leerMensaje(EditText mensaje) {
-        return (mensaje.getText().toString().matches("") ? mensaje.getHint().toString() : mensaje.getText().toString());
-
-    }
 }
+
+
 
