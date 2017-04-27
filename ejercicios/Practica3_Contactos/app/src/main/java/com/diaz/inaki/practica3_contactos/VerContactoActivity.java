@@ -142,14 +142,14 @@ public class VerContactoActivity extends AppCompatActivity implements View.OnCli
                 String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
                 String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
                 String imageURI = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.PHOTO_URI));
-                System.out.println(id+name+imageURI);
+                //System.out.println(id+name+imageURI);
                 //Conseguir cumple
                 String bDay = conseguirCumple(id);
                 //conseguir el número Movil
                 String telefono = conseguirMovil(id);
 
                 if (Integer.parseInt(cur.getString(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
-                    System.out.println("Dentro del if");
+                    //System.out.println("Dentro del if");
                     c.setID(id);
                     c.setName(name);
                     c.setTelefono(telefono);
