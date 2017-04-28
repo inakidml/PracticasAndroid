@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Personal">
+    <EditTextPreference
+        android:key="nickname"
+        android:title="Nickname"
+        android:summary="Escribe tu apodo">
+    </EditTextPreference>
+    <CheckBoxPreference
+        android:key="gustanPreferencias"
+        android:title="¿Te gustan estas preferencias?"
+        android:summary="Para gustos los colores"
+        android:defaultValue="true">
+    </CheckBoxPreference>
+</PreferenceCategory>
+    <PreferenceCategory android:title="Seguridad">
+        <CheckBoxPreference
+            android:title="Require Pin on Start"
+            android:summary="Require pin to run the application"
+            android:key="requiere pin"
+            android:defaultValue="false" />
+        <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+            android:title="Otra Preference Screen">
+            <EditTextPreference
+                android:key="Nombre"
+                android:title="Nombre"
+                android:summary="Escribe tu nombre">
+            </EditTextPreference>
+            <EditTextPreference
+                android:key="Edad"
+                android:title="Edad"
+                android:summary="Escribe tu edad">
+            </EditTextPreference>
+            <MultiSelectListPreference
+                android:enabled="true"
+                android:entries="@array/opciones_abc"
+                android:entryValues="@array/enlaces_abc"
+                android:key="TargetList"
+                android:persistent="true"
+                android:summary="una lista de opciones muy originales"
+                android:title="opciones" />
+
+        </PreferenceScreen>
+    </PreferenceCategory>
+<PreferenceCategory android:title="Configuracion">
+    <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="Sonidos">
+    <RingtonePreference
+        android:title="Ringtone Alarma"
+        android:key="ringtoneAlarm"
+        android:ringtoneType="alarm"
+        />
+    <RingtonePreference
+        android:title="Ringtone aviso"
+        android:key="ringtoneAviso"
+        android:ringtoneType="all"
+        />
+    </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Mascota">
+        <ListPreference
+            android:title="Mascota"
+            android:summary="Elige una mascota"
+            android:key="lista"
+            android:entries="@array/media_names"
+            android:entryValues="@array/media_uris"
+            android:dialogTitle="Select History Age"/>
+    </PreferenceCategory>
+</PreferenceScreen>
