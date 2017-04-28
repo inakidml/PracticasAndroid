@@ -1,0 +1,7 @@
+#Thu Apr 27 19:34:31 CEST 2017
+base.0=/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_310727b41ff9907747e44d6927f48d0db66a46af
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b523d7f23e2bf8bc3b19a4776043e0f8f35ccae8/classes.dex
+base.1=/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b523d7f23e2bf8bc3b19a4776043e0f8f35ccae8
+file.0=/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_310727b41ff9907747e44d6927f48d0db66a46af/classes.dex
