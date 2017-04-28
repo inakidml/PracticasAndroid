@@ -3,111 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/Users/8fdi02/.android/build-cache/6266ce73013cd006278fa74336c81457a331d0d8/output/jars/classes.jar"
+        jar="/Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
-        <dex dex="/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_832bc81b2bf06ab83100bf283455845e1519fe67/classes.dex" />
+        sha1="956885a7ebcb2f48d936cac517d76dd4d4f4fd14">
+        <dex dex="/Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_8849389720deab07c3ec39b20492ea3e4f5fa059/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/8fdi02/.android/build-cache/4b0b138f110ed78c15d909855155461186b3b1e4/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_82fffd40f7b3c6fc849456d5e3a8e9c18c51cecd/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/8fdi02/.android/build-cache/7dde95ccf27d2dee296889590e91e0d4d3cd210a/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9fbd285215409c6a766a35b7feec206cd7c3e72b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/8fdi02/.android/build-cache/443b46ea6d233de2f4888665a63e81053637e221/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a196bf5bfdd88df8ec5946fe8f44c6f2d61ad5c2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5b8708736e0b946c08105e1a7484ab81a4f5e796/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_310727b41ff9907747e44d6927f48d0db66a46af/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/8fdi02/.android/build-cache/92ca97c5fbfb5131e6d077644df46b96739122c4/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
-        <dex dex="/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_224cf10c3388491216c7a6ed1a288e69a94dd06e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/8fdi02/.android/build-cache/55b417ac81f95f1c6aa93c5283f660a3d6d0ee64/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e5ac27b4f23e9f9a86957f37c124d985543d137a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/8fdi02/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.3.1_def9fb3bff85f3562eff8bbb1b84141ef6ba5fcf/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/8fdi02/.android/build-cache/518fe7db44dc384fda690f1fe4480e815d601acb/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
-        <dex dex="/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c1efe2ca9afe1da73c09c2770b984afe3a6be0e3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="99fc8777df3aa991674a4dc3a6fefe5379febdc9">
-        <dex dex="/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b523d7f23e2bf8bc3b19a4776043e0f8f35ccae8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/8fdi02/.android/build-cache/1b1ef898628b52ae301ddce56c5e557212082acb/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ef5ce7277335301f6c4ff0436bca8b370410439f/classes.dex" />
+        <dex dex="/Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_92dda89be53c87736a4af0d17e6bb31257516036/classes.dex" />
     </item>
 
 </items>

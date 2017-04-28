@@ -1,34 +1,18 @@
 [
     {
-        "merged": "/Users/8fdi02/Dropbox/DI privado/Android/Código Ejemplo/Tema 3 - Comunicaciones/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
-        "source": "/Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/res/drawable-v21/abc_btn_colored_material.xml"
+        "merged": "/Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
+        "source": "/Volumes/MacbookProHD/Users/inaki/.android/build-cache/674e6c6163b2745e9bc1d05092296f4b0c27b3a9/output/res/drawable-v21/notification_action_background.xml"
     },
     {
-        "merged": "/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
-        "source": "/Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/res/drawable-v21/notification_action_background.xml"
+        "merged": "/Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Volumes/MacbookProHD/Users/inaki/.android/build-cache/674e6c6163b2745e9bc1d05092296f4b0c27b3a9/output/res/drawable-v21/abc_edit_text_material.xml"
     },
     {
-        "merged": "/Users/8fdi02/Dropbox/DI privado/Android/Código Ejemplo/Tema 3 - Comunicaciones/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
-        "source": "/Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/res/drawable-v21/notification_action_background.xml"
+        "merged": "/Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Volumes/MacbookProHD/Users/inaki/.android/build-cache/674e6c6163b2745e9bc1d05092296f4b0c27b3a9/output/res/drawable-v21/abc_btn_colored_material.xml"
     },
     {
-        "merged": "/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
-        "source": "/Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/res/drawable-v21/abc_btn_colored_material.xml"
-    },
-    {
-        "merged": "/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
-        "source": "/Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
-    },
-    {
-        "merged": "/Users/8fdi02/Dropbox/DI privado/Android/Código Ejemplo/Tema 3 - Comunicaciones/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
-        "source": "/Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/res/drawable-v21/abc_edit_text_material.xml"
-    },
-    {
-        "merged": "/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
-        "source": "/Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/res/drawable-v21/abc_edit_text_material.xml"
-    },
-    {
-        "merged": "/Users/8fdi02/Dropbox/DI privado/Android/Código Ejemplo/Tema 3 - Comunicaciones/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
-        "source": "/Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
+        "merged": "/Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Volumes/MacbookProHD/Users/inaki/.android/build-cache/674e6c6163b2745e9bc1d05092296f4b0c27b3a9/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
     }
 ]

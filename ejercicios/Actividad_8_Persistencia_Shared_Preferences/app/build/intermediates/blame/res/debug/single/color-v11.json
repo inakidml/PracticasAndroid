@@ -1,18 +1,10 @@
 [
     {
-        "merged": "/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
-        "source": "/Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+        "merged": "/Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/Volumes/MacbookProHD/Users/inaki/.android/build-cache/674e6c6163b2745e9bc1d05092296f4b0c27b3a9/output/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
     },
     {
-        "merged": "/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
-        "source": "/Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
-    },
-    {
-        "merged": "/Users/8fdi02/Dropbox/DI privado/Android/Código Ejemplo/Tema 3 - Comunicaciones/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
-        "source": "/Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
-    },
-    {
-        "merged": "/Users/8fdi02/Dropbox/DI privado/Android/Código Ejemplo/Tema 3 - Comunicaciones/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
-        "source": "/Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+        "merged": "/Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/Volumes/MacbookProHD/Users/inaki/.android/build-cache/674e6c6163b2745e9bc1d05092296f4b0c27b3a9/output/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
     }
 ]

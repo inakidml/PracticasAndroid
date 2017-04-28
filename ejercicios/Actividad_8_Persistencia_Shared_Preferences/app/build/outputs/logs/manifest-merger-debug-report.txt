@@ -1,87 +1,87 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:2:1-21:12
+ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:2:1-21:12
 	package
-		ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:3:5-73
-		INJECTED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
+		ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:3:5-73
+		INJECTED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
+		INJECTED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
+		INJECTED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
+		INJECTED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:2:11-69
 	android:versionCode
-		INJECTED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
+		INJECTED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
+		INJECTED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
 application
-ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:5:5-19:19
-MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-v4:25.3.1] /Users/8fdi02/.android/build-cache/55b417ac81f95f1c6aa93c5283f660a3d6d0ee64/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:25.3.1] /Users/8fdi02/.android/build-cache/443b46ea6d233de2f4888665a63e81053637e221/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:25.3.1] /Users/8fdi02/.android/build-cache/518fe7db44dc384fda690f1fe4480e815d601acb/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:25.3.1] /Users/8fdi02/.android/build-cache/7dde95ccf27d2dee296889590e91e0d4d3cd210a/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:25.3.1] /Users/8fdi02/.android/build-cache/4b0b138f110ed78c15d909855155461186b3b1e4/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/8fdi02/.android/build-cache/92ca97c5fbfb5131e6d077644df46b96739122c4/output/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/8fdi02/.android/build-cache/1b1ef898628b52ae301ddce56c5e557212082acb/output/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-compat:25.3.1] /Users/8fdi02/.android/build-cache/6266ce73013cd006278fa74336c81457a331d0d8/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/8fdi02/.android/build-cache/9f03d4a90177f337544cfe630af10c696efffc30/output/AndroidManifest.xml:9:5-20
+ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:5:5-19:19
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/674e6c6163b2745e9bc1d05092296f4b0c27b3a9/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/a891a99c4975ef1af772fd5305cb8e525b695fb8/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/27887fb6b16c222d4a872a14f9ceef11070643b0/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/4feed04f04186e8c566bc655a5299d70a86e047f/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/94a1b870d4b154aa91f4b6d3a2c9d35e92399de3/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/3c2979eca4f086e68c8b70c33d11cf94dc25bdfe/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/2e110cb62517551fc48d111349e091e7abb0df2d/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/5e1ed12b654e7df908fd1f02a18e5165fd428096/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-compat:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/f7db34eb73d9ba7f99328836af293cb57f3b6588/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/d8d99b595a74e5a888cb9ff94f7b1124ba718064/output/AndroidManifest.xml:9:5-20
 	android:label
-		ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:8:9-41
+		ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:8:9-41
 	android:supportsRtl
-		ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:10:9-35
+		ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:10:9-35
 	android:roundIcon
-		ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:9:9-54
+		ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:9:9-54
 	android:allowBackup
-		ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:6:9-35
+		ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:6:9-35
 	android:icon
-		ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:7:9-43
+		ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:7:9-43
 	android:theme
-		ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:11:9-40
+		ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:11:9-40
 activity#com.diaz.inaki.actividad_8_persistencia_shared_preferences.MainActivity
-ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:12:9-18:20
+ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:12:9-18:20
 	android:name
-		ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:12:19-47
+		ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:12:19-47
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:13:13-17:29
+ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:13:13-17:29
 action#android.intent.action.MAIN
-ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:14:17-69
+ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:14:17-69
 	android:name
-		ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:14:25-66
+		ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:14:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:16:17-77
+ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:16:17-77
 	android:name
-		ADDED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:16:27-74
+		ADDED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml:16:27-74
 uses-sdk
-INJECTED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:support-v4:25.3.1] /Users/8fdi02/.android/build-cache/55b417ac81f95f1c6aa93c5283f660a3d6d0ee64/output/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:25.3.1] /Users/8fdi02/.android/build-cache/443b46ea6d233de2f4888665a63e81053637e221/output/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.3.1] /Users/8fdi02/.android/build-cache/518fe7db44dc384fda690f1fe4480e815d601acb/output/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:25.3.1] /Users/8fdi02/.android/build-cache/7dde95ccf27d2dee296889590e91e0d4d3cd210a/output/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:25.3.1] /Users/8fdi02/.android/build-cache/4b0b138f110ed78c15d909855155461186b3b1e4/output/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/8fdi02/.android/build-cache/92ca97c5fbfb5131e6d077644df46b96739122c4/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/8fdi02/.android/build-cache/1b1ef898628b52ae301ddce56c5e557212082acb/output/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-compat:25.3.1] /Users/8fdi02/.android/build-cache/6266ce73013cd006278fa74336c81457a331d0d8/output/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/8fdi02/.android/build-cache/9f03d4a90177f337544cfe630af10c696efffc30/output/AndroidManifest.xml:5:5-7:41
+INJECTED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/674e6c6163b2745e9bc1d05092296f4b0c27b3a9/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/a891a99c4975ef1af772fd5305cb8e525b695fb8/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/27887fb6b16c222d4a872a14f9ceef11070643b0/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/4feed04f04186e8c566bc655a5299d70a86e047f/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/94a1b870d4b154aa91f4b6d3a2c9d35e92399de3/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/3c2979eca4f086e68c8b70c33d11cf94dc25bdfe/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/2e110cb62517551fc48d111349e091e7abb0df2d/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/5e1ed12b654e7df908fd1f02a18e5165fd428096/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-compat:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/f7db34eb73d9ba7f99328836af293cb57f3b6588/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/d8d99b595a74e5a888cb9ff94f7b1124ba718064/output/AndroidManifest.xml:5:5-7:41
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:appcompat-v7:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/674e6c6163b2745e9bc1d05092296f4b0c27b3a9/output/AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
-		INJECTED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
+		INJECTED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
+		INJECTED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
+		INJECTED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
+		INJECTED from /Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/src/main/AndroidManifest.xml
 meta-data#android.support.VERSION
-ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-v4:25.3.1] /Users/8fdi02/.android/build-cache/55b417ac81f95f1c6aa93c5283f660a3d6d0ee64/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-fragment:25.3.1] /Users/8fdi02/.android/build-cache/443b46ea6d233de2f4888665a63e81053637e221/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-media-compat:25.3.1] /Users/8fdi02/.android/build-cache/518fe7db44dc384fda690f1fe4480e815d601acb/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-ui:25.3.1] /Users/8fdi02/.android/build-cache/7dde95ccf27d2dee296889590e91e0d4d3cd210a/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-utils:25.3.1] /Users/8fdi02/.android/build-cache/4b0b138f110ed78c15d909855155461186b3b1e4/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/8fdi02/.android/build-cache/92ca97c5fbfb5131e6d077644df46b96739122c4/output/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/8fdi02/.android/build-cache/1b1ef898628b52ae301ddce56c5e557212082acb/output/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-compat:25.3.1] /Users/8fdi02/.android/build-cache/6266ce73013cd006278fa74336c81457a331d0d8/output/AndroidManifest.xml:25:5-27:34
+ADDED from [com.android.support:appcompat-v7:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/674e6c6163b2745e9bc1d05092296f4b0c27b3a9/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-v4:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/a891a99c4975ef1af772fd5305cb8e525b695fb8/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/27887fb6b16c222d4a872a14f9ceef11070643b0/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/4feed04f04186e8c566bc655a5299d70a86e047f/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/94a1b870d4b154aa91f4b6d3a2c9d35e92399de3/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/3c2979eca4f086e68c8b70c33d11cf94dc25bdfe/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/2e110cb62517551fc48d111349e091e7abb0df2d/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/5e1ed12b654e7df908fd1f02a18e5165fd428096/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-compat:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/f7db34eb73d9ba7f99328836af293cb57f3b6588/output/AndroidManifest.xml:25:5-27:34
 	android:value
-		ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/AndroidManifest.xml:27:9-31
+		ADDED from [com.android.support:appcompat-v7:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/674e6c6163b2745e9bc1d05092296f4b0c27b3a9/output/AndroidManifest.xml:27:9-31
 	android:name
-		ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/8fdi02/.android/build-cache/2c914a4c170f970474b7aefdea82da738bb0b86a/output/AndroidManifest.xml:26:9-47
+		ADDED from [com.android.support:appcompat-v7:25.3.1] /Volumes/MacbookProHD/Users/inaki/.android/build-cache/674e6c6163b2745e9bc1d05092296f4b0c27b3a9/output/AndroidManifest.xml:26:9-47

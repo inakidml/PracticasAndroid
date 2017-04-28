@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/8fdi02/Dropbox/DI privado/Android/Código Ejemplo/Tema 3 - Comunicaciones/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
+        "outputFile": "/Volumes/MacbookProHD/Users/inaki/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
         "map": [
             {
                 "to": {
@@ -11,31 +11,7 @@
                     "endOffset": 96
                 },
                 "from": {
-                    "file": "/Users/8fdi02/.android/build-cache/85c0826fb710d1e63d014563375c9c9b5dc596cd/output/res/values/values.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 229,
-                        "endColumn": 45,
-                        "endOffset": 270
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "/Users/8fdi02/Documents/GitHub/PracticasAndroid/ejercicios/Actividad_8_Persistencia_Shared_Preferences/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 45,
-                    "endOffset": 96
-                },
-                "from": {
-                    "file": "/Users/8fdi02/.android/build-cache/85c0826fb710d1e63d014563375c9c9b5dc596cd/output/res/values/values.xml",
+                    "file": "/Volumes/MacbookProHD/Users/inaki/.android/build-cache/3563bb341e9a0fa7ff1c007c8616413bf3f558de/output/res/values/values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
