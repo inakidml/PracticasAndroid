@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+    <header
+        android:fragment="com.example.inaki.actividad_10_preferencefragment" android:icon="@drawable/datos_personales"
+        android:title="Datos personales"
+        android:summary="No es por cotillear, tan solo necesitamos tus datos" />
+    <header android:fragment="com.mmc.preferencefragment01.PersonajesFavoritos" android:icon="@drawable/personajes_favoritos" android:title="Personajes favoritos"
+        android:summary="¿Cuáles son tus personajes ficticios favoritos?" />
+    <header android:fragment="com.mmc.preferencefragment01.Aficiones" android:icon="@drawable/aficiones" android:title="Aficiones"
+        android:summary="¿Cuáles son tus aficiones?" />
+</preference-headers>
