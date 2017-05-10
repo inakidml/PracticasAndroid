@@ -28,22 +28,25 @@ public class MainActivity extends AppCompatActivity {
         boolean gustan;
 
         TextView tv_nickname = (TextView) findViewById(R.id.textViewNombre);
-        TextView tv_gustar = (TextView) findViewById(R.id.textViewGustar);
+        TextView tv_gustar = (TextView) findViewById(R.id.textViewGustan);
+        TextView tv_pin = (TextView) findViewById(R.id.tvPin);
+        TextView tv_nombre = (TextView) findViewById(R.id.tvNombre);
+        TextView tv_edad = (TextView) findViewById(R.id.tvEdad) ;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         nickname = prefs.getString("nickname", "<campo vacío>");
-        gustan = prefs.getBoolean("gustanSuperheroes", false);
+        gustan = prefs.getBoolean("gustanPreferencias", false);
         Boolean pin = prefs.getBoolean("requiere pin", false);
         String nombre = prefs.getString("Nombre", "");
         String edad = prefs.getString("Edad", "");
-        "TargetList"
-        "ringtoneAlarm"
-        "ringtoneAviso"
-                "lista"
+
 
         tv_nickname.setText("Nickname: " + nickname);
         tv_gustar.setText("¿Te gustan las preferencias? " + new Boolean(gustan).toString());
+        tv_pin.setText("¿Requiere pin?" + new Boolean((pin).toString()));
+        tv_nombre.setText("Nombre: " +nombre);
+        tv_edad.setText("Edad: " + edad);
     }
 
     @Override
