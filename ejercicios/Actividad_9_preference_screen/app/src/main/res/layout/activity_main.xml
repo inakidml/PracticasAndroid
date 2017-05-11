@@ -13,10 +13,18 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tvOpcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvEdad"
+        android:text="Mascota: "
+        android:textSize="20sp" />
+
+    <TextView
         android:id="@+id/tvEdad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:text="Edad: "
         android:textSize="20sp"
         android:layout_below="@+id/tvPin"
@@ -29,28 +37,25 @@
         android:text="¿Requiere pin?"
         android:textSize="20sp"
         android:layout_below="@+id/tvNombre"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="27dp" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/tvNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textViewGustan"
-        android:layout_marginTop="23dp"
         android:text="Nombre: "
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_below="@+id/textViewGustan"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/textViewGustan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textViewNombre"
-        android:layout_marginTop="10dp"
         android:text="¿Te gustan las preferencias?"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_below="@+id/textViewNombre"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -68,7 +73,24 @@
         android:layout_marginLeft="10sp"
         android:layout_marginRight="10sp"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textAlarma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alarma: "
+        android:textSize="20sp"
+        android:layout_below="@+id/tvOpcion"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textAviso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="117dp" />
+        android:layout_below="@+id/textAlarma"
+        android:text="Aviso: "
+        android:textSize="20sp" />
 
 </RelativeLayout>

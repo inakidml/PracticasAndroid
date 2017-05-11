@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
         TextView tv_pin = (TextView) findViewById(R.id.tvPin);
         TextView tv_nombre = (TextView) findViewById(R.id.tvNombre);
         TextView tv_edad = (TextView) findViewById(R.id.tvEdad) ;
+        TextView tv_opcion = (TextView ) findViewById(R.id.tvOpcion);
+        TextView tv_alarma = (TextView ) findViewById(R.id.textAlarma);
+        TextView tv_aviso = (TextView ) findViewById(R.id.textAviso);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -40,13 +43,21 @@ public class MainActivity extends AppCompatActivity {
         Boolean pin = prefs.getBoolean("requiere pin", false);
         String nombre = prefs.getString("Nombre", "");
         String edad = prefs.getString("Edad", "");
+        String opcion = prefs.getString("lista", "no seleccionado");
+        String ringTone = prefs.getString("ringtoneAlarm", "vacio");
+        String aviso = prefs.getString("ringtoneAviso", "vacío");
+
 
 
         tv_nickname.setText("Nickname: " + nickname);
-        tv_gustar.setText("¿Te gustan las preferencias? " + new Boolean(gustan).toString());
-        tv_pin.setText("¿Requiere pin?" + new Boolean((pin).toString()));
+        tv_gustar.setText("¿Te gustan las preferencias?: " + new Boolean(gustan).toString());
+        tv_pin.setText("¿Requiere pin?: " + new Boolean((pin).toString()));
         tv_nombre.setText("Nombre: " +nombre);
         tv_edad.setText("Edad: " + edad);
+        tv_opcion.setText("Video mascota: " + opcion);
+        tv_alarma.setText("Alarma: " + ringTone);
+        tv_aviso.setText("Aviso: " + aviso);
+
     }
 
     @Override
