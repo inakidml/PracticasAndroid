@@ -1,5 +1,6 @@
 package com.diaz.inaki.actividad_13_media_player;
 
+import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -12,20 +13,21 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity implements MediaController.MediaPlayerControl{
 private MediaPlayer mediaPlayer;
     private MediaController mc;
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AssetFileDescriptor resource = getResources().openRawResourceFd(R.raw.julia);
-
+        context = getApplicationContext();
         mediaPlayer = new MediaPlayer();
-        mc = new MediaController(this);
+        mc = new MediaController(context);
 
         try {
             mediaPlayer.setDataSource(resource);
             mediaPlayer.prepare();
             mc.setMediaPlayer(this);
-            mc.setAnchorView(findViewById(R.id.textView));
+            mc.setAnchorView(findViewById(R.id.surfaceView));
 
         } catch (IOException e) {
         } catch (IllegalStateException e) {
@@ -35,19 +37,24 @@ private MediaPlayer mediaPlayer;
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        mc.show(10);
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        try{
+            mc.show(0);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void start() {
+
         mediaPlayer.start();
     }
 
     @Override
     public void pause() {
-
+    mediaPlayer.pause();
     }
 
     @Override
